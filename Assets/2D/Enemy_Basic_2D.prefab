@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8394351637210636956}
   - component: {fileID: 8947002348676921690}
   - component: {fileID: 4454090687837782021}
-  - component: {fileID: 5266577901101385321}
+  - component: {fileID: 2908975616236739113}
   m_Layer: 2
   m_Name: Enemy_Basic_2D
   m_TagString: Enemy
@@ -81,7 +81,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.5344043}
   m_EdgeRadius: 0
---- !u!114 &5266577901101385321
+--- !u!114 &2908975616236739113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,14 +90,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1173607145151204601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79d3d8798c83aca498a6977929ac604e, type: 3}
+  m_Script: {fileID: 11500000, guid: 26b9e9c503fa9484fa770f96ac0b5881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Basic
   health: 35
   enemySpeed: 1.5
-  horizontalSpeed: 0
-  verticalSpeed: 0
 --- !u!1 &5178474696016672726
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,9 +7,9 @@ public class Enemy : MonoBehaviour
     public string Name;
     public float health;
     public float enemySpeed;
-    float enemyTimer = 0f;
-    public float horizontalSpeed = 0f;
-    public float verticalSpeed = 0f;
+    //private float enemyTimer = 0f;
+    private float horizontalSpeed = 0f;
+    private float verticalSpeed = 0f;
     private Collider2D hitCollider;
     private RaycastHit2D hit;
     private Spawn_Enemies EnemyManager;
