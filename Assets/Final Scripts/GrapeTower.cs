@@ -5,9 +5,12 @@ using UnityEngine;
 public class GrapeTower : TowerParent
 {
     // Start is called before the first frame update
+
+    
     void Start()
     {
-            TowerManager.Singleton.AddTower(this);    
+       
+        TowerManager.Singleton.AddTower(this);    
     }
 
     // Update is called once per frame

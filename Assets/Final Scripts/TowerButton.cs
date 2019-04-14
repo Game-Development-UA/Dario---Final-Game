@@ -17,7 +17,7 @@ public class TowerButton : MonoBehaviour
     public int Level;*/
 
   
-    public Tower currTower;
+    public TowerParent currTower;
   
     public TextMeshProUGUI TextBox;
     public TextMeshProUGUI HealthText;
@@ -31,9 +31,7 @@ public class TowerButton : MonoBehaviour
         towerClicked = false;
         
         player = GameObject.FindWithTag("player").GetComponent<Player>();
-        HealthText.text = "" + player.health;
-        MoneyText.text = "" + player.money;
-        ScoreText.text = "" + player.score;
+
         
     }
 
@@ -58,7 +56,8 @@ public class TowerButton : MonoBehaviour
             }
             else
             {
-                TextBox.text = "You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.";
+                // TextBox.text = "You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.";
+                UIManager.Singleton.UpdateTextBox("You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.");
                 UpdatePlayerInfo();
                 towerClicked = true;
                 
@@ -67,12 +66,13 @@ public class TowerButton : MonoBehaviour
     }
 
     public void CreateTower() {
-        TextBox.text = "You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.";
+        //TextBox.text = "You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.";
+        UIManager.Singleton.UpdateTextBox("You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.");
         if (Input.GetKey(KeyCode.Mouse0))
         {
             Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseLoc.z = 0f;
-            Tower tempTower = Instantiate(currTower, mouseLoc, Quaternion.identity);
+            TowerParent tempTower = Instantiate(currTower, mouseLoc, Quaternion.identity);
             tempTower.xCoordinate = mouseLoc.x;
             tempTower.yCoordinate = mouseLoc.y;
             towerClicked = false;
@@ -82,26 +82,35 @@ public class TowerButton : MonoBehaviour
 
     }
     public void UpdateToOriginalText() {
-        TextBox.text = "Hover over a tower icon to learn its details. \nClick on the tower to purchase it. \nClick on the music icon to turn music on or off.";
-       
+        UIManager.Singleton.UpdateTextBox("Hover over a tower icon to learn its details. \nClick on the tower to purchase it. \nClick on the music icon to turn music on or off.");
+        //TextBox.text = "Hover over a tower icon to learn its details. \nClick on the tower to purchase it. \nClick on the music icon to turn music on or off.";
+
     }
 
     public void onHover() {
         print("Tower Name: " + currTower.name);
         if (currTower.name == "Health")
         {
-            TextBox.text = "Purchase Health. This option gives you one health point for the following cost:" +
+            UIManager.Singleton.UpdateTextBox("Purchase Health. This option gives you one health point for the following cost:" +
+                "\nCost: " + currTower.cost);
+            /*TextBox.text = "Purchase Health. This option gives you one health point for the following cost:" +
                 "\nCost: " + currTower.cost
-                ;
+                ;*/
         }
         else
         {
-            TextBox.text = "This is the " + currTower.name + " Tower. \n" +
+            UIManager.Singleton.UpdateTextBox("This is the " + currTower.name + " Tower. \n" +
+                "Fire Rate: " + currTower.fireRate +
+                "\nRange: " + currTower.range +
+                "\nDamage: " + currTower.damage +
+                "\nCost: " + currTower.cost);
+
+            /*TextBox.text = "This is the " + currTower.name + " Tower. \n" +
                 "Fire Rate: " + currTower.fireRate +
                 "\nRange: " + currTower.range +
                 "\nDamage: " + currTower.damage +
                 "\nCost: " + currTower.cost
-                ;
+                ;*/
         }
     }
 
@@ -109,14 +118,18 @@ public class TowerButton : MonoBehaviour
         print("Update Player Info - Tower: " + currTower.name);
         if (currTower.name == "Health")
         {
-            player.health++;
+            UIManager.Singleton.UpdateHealthText(1);
+            UIManager.Singleton.UpdateMoneyText(-currTower.cost);
+            //UIManager.Singleton.UpdateMoneyText()
+            /*player.health++;
             player.money = player.money - currTower.cost;
             HealthText.text = "" + player.health;
-            MoneyText.text = "" + player.money;
+            MoneyText.text = "" + player.money;*/
         }
         else {
-            player.money = player.money - currTower.cost;
-            MoneyText.text = "" + player.money;
+            UIManager.Singleton.UpdateMoneyText(-currTower.cost);
+            /*player.money = player.money - currTower.cost;
+            MoneyText.text = "" + player.money;*/
         }
     }
 }

@@ -21,6 +21,9 @@ public class UIManager : MonoBehaviour
    void Awake()
     {
         Singleton = this;
+        HealthText.text = "" + Player.Singleton.health;
+        MoneyText.text = "" + Player.Singleton.money;
+        ScoreText.text = "" + Player.Singleton.score;
     }
     void Start()
     {
@@ -47,5 +50,9 @@ public class UIManager : MonoBehaviour
     public void UpdateScoreText(int numToAdd) {
         Player.Singleton.UpdateScore(numToAdd);
         ScoreText.text = "" + Player.Singleton.score;
+    }
+
+    public void UpdateTextBox(string update) {
+        TextBox.text = update;
     }
 }
