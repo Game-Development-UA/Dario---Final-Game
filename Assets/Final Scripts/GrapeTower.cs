@@ -17,6 +17,7 @@ public class GrapeTower : TowerParent
     void Update()
     {
         FindTargets();
+        Fire();
       
     }
 }

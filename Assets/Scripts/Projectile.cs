@@ -9,12 +9,12 @@ public class Projectile : MonoBehaviour
     private float projectileSpeed;
     
     private float timeToHit;
-    private GameObject currTarget;
-    private Tower parentTower;
-    private List<GameObject> StoreTargetList = new List<GameObject>();
+    private EnemyFinal currTarget;
+    private TowerParent parentTower;
+    //private List<GameObject> StoreTargetList = new List<GameObject>();
     private float startDistance;
     private float interpolationValue;
-    private Enemy enemyReference;
+    private EnemyFinal enemyReference;
 
 
     //interpolation values
@@ -62,7 +62,7 @@ public class Projectile : MonoBehaviour
             }
             else if ((this.transform.position - currTarget.transform.position).magnitude < 0.15f)
             {
-                enemyReference = currTarget.GetComponent<Enemy>();
+                enemyReference = currTarget;
                 enemyReference.health = enemyReference.health - damage;
                 hit = true;
                 parentTower.UpdateShot(false);
@@ -78,7 +78,7 @@ public class Projectile : MonoBehaviour
     }
 
 
-    public void InstantiateProjectile(List<GameObject> TargetList, Tower currTower) {
+    public void InstantiateProjectile(List<EnemyFinal> TargetList, TowerParent currTower) {
         if (TargetList.Count > 0) {
             currTarget = TargetList[0];
 
@@ -86,8 +86,8 @@ public class Projectile : MonoBehaviour
         parentTower = currTower;
         shotDirection = currTarget.transform.position - parentTower.towerPosition;
         shotDirection.Normalize();
-        shotDirection = shotDirection / 10f;
-        startPosition = parentTower.transform.position + shotDirection;
+        //shotDirection = shotDirection / 10f;
+        startPosition = parentTower.transform.position + shotDirection/10f;
         this.transform.position = startPosition;
         projectileSpeed = 2f + parentTower.fireRate / 50f;
     }

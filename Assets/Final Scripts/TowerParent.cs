@@ -42,17 +42,22 @@ public abstract class TowerParent : MonoBehaviour
         }
     }
 
+    public void UpdateShot(bool shotBool)
+    {
+        shot = shotBool;
+    }
+
     public void Fire() {
         if (!shot)
         {
-           /* if (TargetList.Count > 0)
+            if (TargetList.Count > 0)
             {
-                tempProjectile = Instantiate<Projectile>(currProjectile, new Vector3(towerPosition.x, towerPosition.y, 0), Quaternion.identity);
+                Projectile tempProjectile = Instantiate<Projectile>(currProjectile, new Vector3(towerPosition.x, towerPosition.y, 0), Quaternion.identity);
 
                 tempProjectile.InstantiateProjectile(TargetList, this);
                 shot = true;
 
-            }*/
+            }
         }
 
     }

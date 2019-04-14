@@ -103,7 +103,7 @@ public class Tower : MonoBehaviour
             if (TargetList.Count > 0) {
                 tempProjectile = Instantiate<Projectile>(currProjectile, new Vector3(towerPosition.x, towerPosition.y, 0), Quaternion.identity);
                 
-                tempProjectile.InstantiateProjectile(TargetList, this);
+                //tempProjectile.InstantiateProjectile(TargetList, this);
                 shot = true;
 
             }
