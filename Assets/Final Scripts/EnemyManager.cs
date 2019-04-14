@@ -89,4 +89,15 @@ public class EnemyManager : MonoBehaviour
         enemyList.Remove(enemyList[enemyIndex]);
         Destroy(toDel);
     }
+
+    public void CheckEnemyHealth() {
+        for (int i = 0; i < enemyList.Count; i++) {
+            if (enemyList[i].health <= 0f) {
+                TowerManager.Singleton.RemoveFromAllTowers(enemyList[i]);
+                RemoveFromList(enemyList[i]);
+            }
+        }
+
+
+    }
 }
