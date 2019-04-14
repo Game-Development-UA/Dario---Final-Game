@@ -27,7 +27,13 @@ public class EnemyManager : MonoBehaviour
 
 
     public List<EnemyFinal> enemyList = new List<EnemyFinal>();
+    public static EnemyManager Singleton;
+
     // Start is called before the first frame update
+    void Awake() {
+        Singleton = this;
+    }
+
     void Start()
     {
         enemyTypeCount = 0;
@@ -65,5 +71,22 @@ public class EnemyManager : MonoBehaviour
     public void SpawnEnemy(EnemyFinal EnemyToSpawn){
         Temp = Instantiate(EnemyToSpawn, new Vector3(spawnCoordinate_x, spawnCoordinate_y, 0), Quaternion.identity);
         enemyList.Add(Temp);
+    }
+
+    public int SearchEnemy(EnemyFinal Enemy) {
+        for (int i = 0; i < enemyList.Count; i++)
+        {  
+            if (Enemy == enemyList[i])
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void RemoveFromList(EnemyFinal toDel) {
+        int enemyIndex = SearchEnemy(toDel);
+        enemyList.Remove(enemyList[enemyIndex]);
+        Destroy(toDel);
     }
 }

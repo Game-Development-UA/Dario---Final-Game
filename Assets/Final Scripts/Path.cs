@@ -12,14 +12,5 @@ public class Path : MonoBehaviour
     void Awake() {
         Singleton = this;
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
