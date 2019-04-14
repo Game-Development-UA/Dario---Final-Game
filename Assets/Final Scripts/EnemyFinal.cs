@@ -14,10 +14,13 @@ public class EnemyFinal : MonoBehaviour
     private int checkPointNum;
     public Vector3 Direction;
 
+    public bool dead;
+
     // Start is called before the first frame update
     void Start()
     {
         Direction = new Vector3(0, -1, 0);
+        dead = false;
         UpdateCheckPoint(0);
         
     }
@@ -27,6 +30,7 @@ public class EnemyFinal : MonoBehaviour
     {
         this.transform.Translate(Direction.x * enemySpeed * Time.deltaTime, Direction.y * enemySpeed * Time.deltaTime, 0f);
         CheckPosition();
+        CheckHealth();
         
     }
 
@@ -60,5 +64,14 @@ public class EnemyFinal : MonoBehaviour
             angle = angle * -1;
         }
         this.transform.GetChild(0).transform.Rotate(0, 0, angle);
+    }
+
+    public void CheckHealth() {
+        if (this.health <= 0f) {
+            dead = true;
+            TowerManager.Singleton.RemoveFromAllTowers();
+            EnemyManager.Singleton.SearchDeadEnemy();
+            //Destroy(this.gameObject);
+        }
     }
 }

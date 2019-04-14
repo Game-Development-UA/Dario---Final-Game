@@ -23,11 +23,16 @@ public class TowerManager : MonoBehaviour
         
     }
 
-    public void RemoveFromAllTowers(EnemyFinal Enemy) {
+    public void AddTower(TowerParent tower) {
+        TowersList.Add(tower);
+    }
+
+    public void RemoveFromAllTowers() {
         for (int i = 0; i < TowersList.Count; i++) {
             for (int j = 0; j < TowersList[i].TargetList.Count; j++) {
-                if (TowersList[i].TargetList[j] == Enemy) {
-                    TowersList[i].TargetList.Remove(Enemy);
+                if (TowersList[i].TargetList[j].dead) {
+
+                    TowersList[i].TargetList.Remove(TowersList[i].TargetList[j]);
                 }
             }
 

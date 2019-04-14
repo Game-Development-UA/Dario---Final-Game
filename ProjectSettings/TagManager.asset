@@ -10,6 +10,7 @@ TagManager:
   - EnemyManager
   - player
   - Initiate
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

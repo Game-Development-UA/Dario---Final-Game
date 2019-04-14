@@ -16,21 +16,16 @@ public abstract class TowerParent : MonoBehaviour
     public int Level;
     public List<EnemyFinal> TargetList = new List<EnemyFinal>();
     public Projectile currProjectile;
-    void Start()
-    {
-        
-    }
+    private bool shot;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
+   
     public void FindTargets() {
         for (int i = 0; i < EnemyManager.Singleton.enemyList.Count; i++) {
+            
             if (!TargetList.Contains(EnemyManager.Singleton.enemyList[i]))
             {
+                
                 if ((EnemyManager.Singleton.enemyList[i].transform.position - towerPosition).magnitude <= range)
                 {
                     TargetList.Add(EnemyManager.Singleton.enemyList[i]);
@@ -45,6 +40,21 @@ public abstract class TowerParent : MonoBehaviour
             }
 
         }
+    }
+
+    public void Fire() {
+        if (!shot)
+        {
+           /* if (TargetList.Count > 0)
+            {
+                tempProjectile = Instantiate<Projectile>(currProjectile, new Vector3(towerPosition.x, towerPosition.y, 0), Quaternion.identity);
+
+                tempProjectile.InstantiateProjectile(TargetList, this);
+                shot = true;
+
+            }*/
+        }
+
     }
 
 

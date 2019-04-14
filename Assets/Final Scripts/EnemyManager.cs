@@ -43,7 +43,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
     public void StartLevel() {
@@ -84,20 +84,18 @@ public class EnemyManager : MonoBehaviour
         return -1;
     }
 
-    public void RemoveFromList(EnemyFinal toDel) {
-        int enemyIndex = SearchEnemy(toDel);
-        enemyList.Remove(enemyList[enemyIndex]);
-        Destroy(toDel);
-    }
 
-    public void CheckEnemyHealth() {
+
+
+    public void SearchDeadEnemy() {
         for (int i = 0; i < enemyList.Count; i++) {
-            if (enemyList[i].health <= 0f) {
-                TowerManager.Singleton.RemoveFromAllTowers(enemyList[i]);
-                RemoveFromList(enemyList[i]);
+            if (enemyList[i].dead) {
+                EnemyFinal Temp = enemyList[i];
+               // RemoveFromList(Temp);
+                enemyList.Remove(Temp);
             }
         }
-
-
     }
+
+
 }
