@@ -96,6 +96,11 @@ MonoBehaviour:
   Name: Basic
   health: 35
   enemySpeed: 1.5
+  score: 20
+  money: 20
+  Direction: {x: 0, y: 0, z: 0}
+  dead: 0
+  removed: 0
 --- !u!1 &5178474696016672726
 GameObject:
   m_ObjectHideFlags: 0

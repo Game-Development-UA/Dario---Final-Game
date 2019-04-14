@@ -31,7 +31,7 @@ public class TowerManager : MonoBehaviour
         for (int i = 0; i < TowersList.Count; i++) {
             for (int j = 0; j < TowersList[i].TargetList.Count; j++) {
                 if (TowersList[i].TargetList[j].dead) {
-
+                    TowersList[i].TargetList[j].removed = true;
                     TowersList[i].TargetList.Remove(TowersList[i].TargetList[j]);
                 }
             }

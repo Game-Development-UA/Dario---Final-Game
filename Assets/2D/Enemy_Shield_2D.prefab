@@ -116,6 +116,11 @@ MonoBehaviour:
   Name: Shield
   health: 70
   enemySpeed: 1.25
+  score: 35
+  money: 35
+  Direction: {x: 0, y: 0, z: 0}
+  dead: 0
+  removed: 0
 --- !u!1 &6768298942767118070
 GameObject:
   m_ObjectHideFlags: 0

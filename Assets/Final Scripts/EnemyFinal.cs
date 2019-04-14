@@ -7,6 +7,8 @@ public class EnemyFinal : MonoBehaviour
     public string Name;
     public float health;
     public float enemySpeed;
+    public int score;
+    public int money;
 
     private float horizontalSpeed;
     private float verticalSpeed;
@@ -15,6 +17,7 @@ public class EnemyFinal : MonoBehaviour
     public Vector3 Direction;
 
     public bool dead;
+    public bool removed;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +74,13 @@ public class EnemyFinal : MonoBehaviour
             dead = true;
             TowerManager.Singleton.RemoveFromAllTowers();
             EnemyManager.Singleton.SearchDeadEnemy();
-            //Destroy(this.gameObject);
+            UIManager.Singleton.UpdateScoreText(score);
+            UIManager.Singleton.UpdateMoneyText(money);
+            if (removed)
+            {
+                Destroy(this.gameObject);
+
+            }
         }
     }
 }

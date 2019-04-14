@@ -24,8 +24,7 @@ public class DeleteExit : MonoBehaviour
         {
             //player.health = player.health - 1;
             //HealthText.text = "" + player.health;
-
-            //EnemyManager.Singleton.RemoveFromList(col.gameObject.GetComponent<EnemyFinal>());
+            UIManager.Singleton.UpdateHealthText(-1);
             EnemyManager.Singleton.enemyList.Remove(col.gameObject.GetComponent<EnemyFinal>());
             Destroy(col.gameObject);
         }

@@ -96,6 +96,11 @@ MonoBehaviour:
   Name: Bike
   health: 30
   enemySpeed: 1.75
+  score: 25
+  money: 25
+  Direction: {x: 0, y: 0, z: 0}
+  dead: 0
+  removed: 0
 --- !u!1 &4108953987456995528
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,31 +13,31 @@ public class Player : MonoBehaviour
     public int health;
     public int score;
 
-    
+    public static Player Singleton;
+
+    void Awake() {
+        Singleton = this;
+    }
     void Start()
     {
        
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (health == 0) {
-        SceneManager.LoadScene(3);
-        }
-    }
 
     public void UpdateMoney(int numToAdd) {
         money += numToAdd;
 
     }
 
-    public void UpdateHealth() {
-
+    public void UpdateHealth(int num) {
+        health += num;
+        if (health <= 0) {
+            SceneManager.LoadScene(3);
+        }
     }
 
-    public void UpdateScore() {
-
+    public void UpdateScore(int num) {
+        score += num;
     }
 }
