@@ -71,13 +71,22 @@ public class TowerButton : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouseLoc.z = 0f;
-            TowerParent tempTower = Instantiate(currTower, mouseLoc, Quaternion.identity);
-            tempTower.towerPosition = new Vector3(mouseLoc.x, mouseLoc.y, 0f);
-            tempTower.xCoordinate = mouseLoc.x;
-            tempTower.yCoordinate = mouseLoc.y;
-            towerClicked = false;
-            UpdateToOriginalText();
+            if (Path.Singleton.CheckConflictTowerPosition(mouseLoc))
+            {
+                print("sup");
+                mouseLoc.z = 0f;
+                TowerParent tempTower = Instantiate(currTower, mouseLoc, Quaternion.identity);
+                tempTower.towerPosition = new Vector3(mouseLoc.x, mouseLoc.y, 0f);
+                tempTower.xCoordinate = mouseLoc.x;
+                tempTower.yCoordinate = mouseLoc.y;
+                towerClicked = false;
+                UpdateToOriginalText();
+            }
+            else {
+                CreateTower();
+            }
+            
+         
         }
 
 
@@ -133,4 +142,6 @@ public class TowerButton : MonoBehaviour
             MoneyText.text = "" + player.money;*/
         }
     }
+
+
 }
