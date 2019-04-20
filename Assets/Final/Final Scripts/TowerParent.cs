@@ -40,6 +40,7 @@ public abstract class TowerParent : MonoBehaviour
             }
 
         }
+        SortTargetList();
     }
 
     public void UpdateShot(bool shotBool)
@@ -60,6 +61,23 @@ public abstract class TowerParent : MonoBehaviour
             }
         }
 
+    }
+
+    public void SortTargetList() {
+        EnemyFinal Temp;
+        if (TargetList.Count > 1) {
+            for (int i = 0; i < TargetList.Count; i++) {
+                if (i != TargetList.Count - 1) {
+                    if (TargetList[i].timer < TargetList[i + 1].timer) {
+                        Temp = TargetList[i];
+                        TargetList[i] = TargetList[i + 1];
+                        TargetList[i + 1] = Temp;
+
+                    }
+                }
+
+            }
+        }
     }
 
 

@@ -2428,11 +2428,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy1: {fileID: 2908975616236739113, guid: 8703486d327e43148af517a293b6612e, type: 3}
-  numWalkEnemies: 2
+  numWalkEnemies: 5
   Enemy2: {fileID: 4023075230059230835, guid: 58355476d026bff4086decf8aeb038c9, type: 3}
-  numShieldEnemies: 0
+  numShieldEnemies: 5
   Enemy3: {fileID: 3980080547721256278, guid: 6fee35a71b1da484fb8d0fcb6e03f9ad, type: 3}
-  numBikeEnemies: 0
+  numBikeEnemies: 5
   spawnCoordinate_x: 1.5
   spawnCoordinate_y: -0.5
   enemySpawnTimer: 1.5

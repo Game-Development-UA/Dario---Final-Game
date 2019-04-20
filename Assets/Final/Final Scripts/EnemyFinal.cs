@@ -18,11 +18,13 @@ public class EnemyFinal : MonoBehaviour
 
     public bool dead;
     public bool removed;
+    public float timer;
 
     // Start is called before the first frame update
     void Start()
     {
         Direction = new Vector3(0, -1, 0);
+        timer = 0f;
         dead = false;
         UpdateCheckPoint(0);
         
@@ -34,7 +36,7 @@ public class EnemyFinal : MonoBehaviour
         this.transform.Translate(Direction.x * enemySpeed * Time.deltaTime, Direction.y * enemySpeed * Time.deltaTime, 0f);
         CheckPosition();
         CheckHealth();
-        
+        timer += Time.deltaTime;
     }
 
     public void UpdateCheckPoint(int numCheckPoint) {
@@ -74,10 +76,11 @@ public class EnemyFinal : MonoBehaviour
             dead = true;
             TowerManager.Singleton.RemoveFromAllTowers();
             EnemyManager.Singleton.SearchDeadEnemy();
-            UIManager.Singleton.UpdateScoreText(score);
-            UIManager.Singleton.UpdateMoneyText(money);
+
             if (removed)
             {
+                UIManager.Singleton.UpdateScoreText(score);
+                UIManager.Singleton.UpdateMoneyText(money);
                 Destroy(this.gameObject);
 
             }

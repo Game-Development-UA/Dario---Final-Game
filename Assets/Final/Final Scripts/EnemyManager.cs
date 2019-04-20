@@ -2,19 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public class Round
+{
+    public int[] EnemyRoundNum = new int[3];
+
+
+    public void SetRoundInfo(int numBike, int numWalk, int numShield) {
+        EnemyRoundNum[0] = numBike;
+        EnemyRoundNum[1] = numWalk;
+        EnemyRoundNum[2] = numShield;
+    }
+}
 public class EnemyManager : MonoBehaviour
 {
     public EnemyFinal Enemy1;
-    public int numWalkEnemies;
+
   
     
     public EnemyFinal Enemy2;
-    public int numShieldEnemies;
+ 
  
 
     public EnemyFinal Enemy3;
-    public int numBikeEnemies;
- 
+
+    public List<Round> availableRounds = new List<Round>();
+    private int numRounds;
 
     private EnemyFinal Temp;
     private int enemyTypeCount;
@@ -23,7 +36,8 @@ public class EnemyManager : MonoBehaviour
     public float spawnCoordinate_y;
     public float enemySpawnTimer;
 
-    private int level;
+    private int round;
+    private bool nextRoundStart;
 
 
     public List<EnemyFinal> enemyList = new List<EnemyFinal>();
@@ -32,34 +46,41 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake() {
         Singleton = this;
+
     }
 
     void Start()
     {
         enemyTypeCount = 0;
-        StartCoroutine(SpawnEnemies());
+        round = 0;
+        nextRoundStart = false;
+        CreateEnemiesForRounds();
+        StartCoroutine(SpawnEnemies(availableRounds[0].EnemyRoundNum[0], availableRounds[0].EnemyRoundNum[1], availableRounds[0].EnemyRoundNum[2]));
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (nextRoundStart) {
+            StartRound();
+        }
     }
 
-    public void StartLevel() {
-
+    public void StartRound() {
+        nextRoundStart = false;
+        StartCoroutine(SpawnEnemies(availableRounds[round].EnemyRoundNum[0], availableRounds[round].EnemyRoundNum[1], availableRounds[round].EnemyRoundNum[2]));
 
     }
 
-    IEnumerator SpawnEnemies() {
-        while (enemyTypeCount < numBikeEnemies + numShieldEnemies + numWalkEnemies) {
-            if (enemyTypeCount < numBikeEnemies) {
+    IEnumerator SpawnEnemies(int numBike, int numWalk, int numShield ) {
+        while (enemyTypeCount < numBike + numShield + numWalk) {
+            if (enemyTypeCount < numBike) {
                 SpawnEnemy(Enemy3);
             }
-            else if (enemyTypeCount < numWalkEnemies + numBikeEnemies) {
+            else if (enemyTypeCount < numWalk + numBike) {
                 SpawnEnemy(Enemy1);
             }
-            else if (enemyTypeCount < numShieldEnemies + numWalkEnemies + numBikeEnemies) {
+            else if (enemyTypeCount < numShield + numWalk + numBike) {
                 SpawnEnemy(Enemy2);
             }
             enemyTypeCount++;
@@ -95,7 +116,28 @@ public class EnemyManager : MonoBehaviour
                 enemyList.Remove(Temp);
             }
         }
+        if (enemyList.Count == 0) {
+            nextRoundStart = true;
+            round++;
+        }
     }
 
+    public void CreateEnemiesForRounds() {
+        for (int i = 0; i < 5; i++) {
+            availableRounds.Add(new Round());
+
+            availableRounds[i].SetRoundInfo(4 + i, 2 + i, 2 * i);
+
+            
+        }
+        /*print("In create");
+        for (int j = 0; j < 5; j++) {
+            for (int k = 0; k < 3; k++) {
+                print("Round: " + j + "Enemy Type: " + k);
+                print(availableRounds[j].EnemyRoundNum[k]);
+            }
+        }*/
+
+    }
 
 }
