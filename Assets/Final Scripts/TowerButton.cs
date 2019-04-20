@@ -26,10 +26,11 @@ public class TowerButton : MonoBehaviour
     public Player player;
     private bool towerClicked;
 
+
     void Start()
     {
         towerClicked = false;
-        
+      
         player = GameObject.FindWithTag("player").GetComponent<Player>();
 
         
@@ -39,10 +40,11 @@ public class TowerButton : MonoBehaviour
     void Update()
     {
         if (towerClicked) {
-            CreateTower();
-            
 
-        }
+                    CreateTower();
+         }
+
+        
     }
 
     public void Click() {
@@ -67,11 +69,29 @@ public class TowerButton : MonoBehaviour
 
     public void CreateTower() {
         //TextBox.text = "You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.";
-        UIManager.Singleton.UpdateTextBox("You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.");
+        // UIManager.Singleton.UpdateTextBox("You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.");
+        print("create tower: before if clicked");
         if (Input.GetKey(KeyCode.Mouse0))
-        {
+         {
             Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (Path.Singleton.CheckConflictTowerPosition(mouseLoc))
+            if (ValidClickedLocation(Input.mousePosition))
+                {
+
+                 mouseLoc.z = 0f;
+                 TowerParent tempTower = Instantiate(currTower, mouseLoc, Quaternion.identity);
+                 tempTower.towerPosition = new Vector3(mouseLoc.x, mouseLoc.y, 0f);
+                 tempTower.xCoordinate = mouseLoc.x;
+                 tempTower.yCoordinate = mouseLoc.y;
+                 towerClicked = false;
+                    // Path.Singleton.acceptableLocation = true;
+                 UpdateToOriginalText();
+
+             }
+             else {
+                    UIManager.Singleton.UpdateTextBox("Cannot Place Tower here. Pick another spot.");
+
+                }
+           /* if (Path.Singleton.CheckConflictTowerPosition(mouseLoc))
             {
                 print("sup");
                 mouseLoc.z = 0f;
@@ -83,11 +103,11 @@ public class TowerButton : MonoBehaviour
                 UpdateToOriginalText();
             }
             else {
-                CreateTower();
-            }
+                //CreateTower();
+            }*/
             
          
-        }
+         }
 
 
     }
@@ -130,18 +150,33 @@ public class TowerButton : MonoBehaviour
         {
             UIManager.Singleton.UpdateHealthText(1);
             UIManager.Singleton.UpdateMoneyText(-currTower.cost);
-            //UIManager.Singleton.UpdateMoneyText()
-            /*player.health++;
-            player.money = player.money - currTower.cost;
-            HealthText.text = "" + player.health;
-            MoneyText.text = "" + player.money;*/
+
         }
         else {
             UIManager.Singleton.UpdateMoneyText(-currTower.cost);
-            /*player.money = player.money - currTower.cost;
-            MoneyText.text = "" + player.money;*/
+           
         }
     }
 
+    public bool ValidClickedLocation(Vector3 mouseLoc) {
+        bool goodSpot = true;
+        
+        Ray ray = Camera.main.ScreenPointToRay(mouseLoc);
+       // print(mouseLoc);
+      print(ray.origin);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector3(ray.origin.x, ray.origin.y, 0f), ray.direction);
+        if (hit.collider == null)
+        {
+            print("no colliders detected");
+            goodSpot = true;
+        }
+        else {
+            print("colliders detected");
+            print(hit.collider);
+            goodSpot = false;
+        }
 
+        return goodSpot;
+
+    }
 }

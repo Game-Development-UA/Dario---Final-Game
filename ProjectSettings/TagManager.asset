@@ -11,6 +11,7 @@ TagManager:
   - player
   - Initiate
   - Checkpoint
+  - tower
   layers:
   - Default
   - TransparentFX

@@ -365,7 +365,7 @@ GameObject:
   m_Layer: 0
   m_Name: checkPoint (6)
   m_TagString: Checkpoint
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -395,7 +395,7 @@ GameObject:
   m_Layer: 0
   m_Name: checkPoint (4)
   m_TagString: Checkpoint
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1489,6 +1489,7 @@ GameObject:
   - component: {fileID: 298442070}
   - component: {fileID: 298442069}
   - component: {fileID: 298442068}
+  - component: {fileID: 298442072}
   m_Layer: 5
   m_Name: Trial
   m_TagString: Untagged
@@ -1578,6 +1579,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &298442072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298442067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc47b5db4ce113e4b813aa311a281e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextBox: {fileID: 146609884}
+  HealthText: {fileID: 1684996965}
+  MoneyText: {fileID: 427385634}
+  ScoreText: {fileID: 1910263103}
 --- !u!1 &342762903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,9 +1606,10 @@ GameObject:
   - component: {fileID: 342762906}
   - component: {fileID: 342762905}
   - component: {fileID: 342762904}
+  - component: {fileID: 342762907}
   m_Layer: 0
-  m_Name: New Sprite (1)
-  m_TagString: Untagged
+  m_Name: Grape
+  m_TagString: tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1681,6 +1699,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &342762907
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342762903}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &356498469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,8 +1825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currTower: {fileID: 6181429589647787214, guid: dca6801067469494cbf6013a165f66e2,
-    type: 3}
+  currTower: {fileID: 0}
   TextBox: {fileID: 146609884}
   HealthText: {fileID: 1684996965}
   MoneyText: {fileID: 427385634}
@@ -2137,8 +2180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currTower: {fileID: 4127576932279496673, guid: 80b59674be319c540bde17c68edc656a,
-    type: 3}
+  currTower: {fileID: 0}
   TextBox: {fileID: 146609884}
   HealthText: {fileID: 1684996965}
   MoneyText: {fileID: 427385634}
@@ -2326,6 +2368,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2341,6 +2384,22 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1690312454, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2589,9 +2648,9 @@ MonoBehaviour:
   Enemy1: {fileID: 2908975616236739113, guid: 8703486d327e43148af517a293b6612e, type: 3}
   numWalkEnemies: 2
   Enemy2: {fileID: 4023075230059230835, guid: 58355476d026bff4086decf8aeb038c9, type: 3}
-  numShieldEnemies: 2
+  numShieldEnemies: 0
   Enemy3: {fileID: 3980080547721256278, guid: 6fee35a71b1da484fb8d0fcb6e03f9ad, type: 3}
-  numBikeEnemies: 1
+  numBikeEnemies: 0
   spawnCoordinate_x: 1.5
   spawnCoordinate_y: -0.5
   enemySpawnTimer: 1.5
@@ -2622,7 +2681,7 @@ GameObject:
   m_Layer: 0
   m_Name: checkPoint (5)
   m_TagString: Checkpoint
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3123,8 +3182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currTower: {fileID: 5027210976036229877, guid: 5cd0c2eccf4239742b9b86790aa405f9,
-    type: 3}
+  currTower: {fileID: 342762904}
   TextBox: {fileID: 146609884}
   HealthText: {fileID: 1684996965}
   MoneyText: {fileID: 427385634}
@@ -3231,6 +3289,8 @@ GameObject:
   - component: {fileID: 1172997265}
   - component: {fileID: 1172997268}
   - component: {fileID: 1172997267}
+  - component: {fileID: 1172997266}
+  - component: {fileID: 1172997269}
   m_Layer: 0
   m_Name: Path TileMap
   m_TagString: Untagged
@@ -3260,6 +3320,29 @@ Transform:
   m_Father: {fileID: 1362117787}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1172997266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172997264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e648f2c8c5741146952a7649c9f91d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkPoints:
+  - {fileID: 2083109206}
+  - {fileID: 1328448901}
+  - {fileID: 2025951404}
+  - {fileID: 1729895946}
+  - {fileID: 261242687}
+  - {fileID: 683936111}
+  - {fileID: 177356089}
+  - {fileID: 1202244225}
+  pathLines: []
+  pathTiles: {fileID: 1172997268}
 --- !u!483693784 &1172997267
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -3777,6 +3860,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &1172997269
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172997264}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
 --- !u!1 &1193589834
 GameObject:
   m_ObjectHideFlags: 0
@@ -3864,7 +3961,7 @@ GameObject:
   m_Layer: 0
   m_Name: checkPoint (7)
   m_TagString: Checkpoint
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4166,7 +4263,7 @@ GameObject:
   m_Layer: 0
   m_Name: checkPoint (1)
   m_TagString: Checkpoint
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4990,7 +5087,7 @@ GameObject:
   m_Layer: 0
   m_Name: checkPoint (3)
   m_TagString: Checkpoint
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5007,6 +5104,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1172997265}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1752751088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1752751090}
+  - component: {fileID: 1752751089}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1752751089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752751088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8869d95ffe0db0941a33bf365c5f0847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TowersList: []
+--- !u!4 &1752751090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752751088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.5019417, y: -3.5585952, z: -0.021367101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1790788767
 GameObject:
@@ -5125,6 +5266,8 @@ MonoBehaviour:
   - {fileID: 683936111}
   - {fileID: 177356089}
   - {fileID: 1202244225}
+  pathLines: []
+  pathTiles: {fileID: 0}
 --- !u!4 &1860085417
 Transform:
   m_ObjectHideFlags: 0
@@ -5413,7 +5556,7 @@ GameObject:
   m_Layer: 0
   m_Name: checkPoint (2)
   m_TagString: Checkpoint
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5531,8 +5674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currTower: {fileID: 707214294884143272, guid: 7867b617e705148449f34b052d84fc9f,
-    type: 3}
+  currTower: {fileID: 0}
   TextBox: {fileID: 146609884}
   HealthText: {fileID: 1684996965}
   MoneyText: {fileID: 427385634}
@@ -5640,7 +5782,7 @@ GameObject:
   m_Layer: 0
   m_Name: checkPoint
   m_TagString: Checkpoint
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
