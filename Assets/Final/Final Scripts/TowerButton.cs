@@ -23,7 +23,6 @@ public class TowerButton : MonoBehaviour
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI MoneyText;
     public TextMeshProUGUI ScoreText;
-    public Player player;
     private bool towerClicked;
 
 
@@ -31,9 +30,6 @@ public class TowerButton : MonoBehaviour
     {
         towerClicked = false;
       
-        player = GameObject.FindWithTag("player").GetComponent<Player>();
-
-        
     }
 
   
@@ -49,7 +45,7 @@ public class TowerButton : MonoBehaviour
 
     public void Click() {
 
-        if (currTower.cost <=  player.money) {
+        if (currTower.cost <=  Player.Singleton.money) {
             if (currTower.name == "Health")
             {
                 print("clicked on health");
@@ -91,56 +87,45 @@ public class TowerButton : MonoBehaviour
                     UIManager.Singleton.UpdateTextBox("Cannot Place Tower here. Pick another spot.");
 
                 }
-           /* if (Path.Singleton.CheckConflictTowerPosition(mouseLoc))
-            {
-                print("sup");
-                mouseLoc.z = 0f;
-                TowerParent tempTower = Instantiate(currTower, mouseLoc, Quaternion.identity);
-                tempTower.towerPosition = new Vector3(mouseLoc.x, mouseLoc.y, 0f);
-                tempTower.xCoordinate = mouseLoc.x;
-                tempTower.yCoordinate = mouseLoc.y;
-                towerClicked = false;
-                UpdateToOriginalText();
-            }
-            else {
-                //CreateTower();
-            }*/
-            
-         
+
          }
 
 
     }
     public void UpdateToOriginalText() {
-        UIManager.Singleton.UpdateTextBox("Hover over a tower icon to learn its details. \nClick on the tower to purchase it. \nClick on the music icon to turn music on or off.");
-        //TextBox.text = "Hover over a tower icon to learn its details. \nClick on the tower to purchase it. \nClick on the music icon to turn music on or off.";
-
+        if (!towerClicked) {
+            UIManager.Singleton.UpdateTextBox("Hover over a tower icon to learn its details. \nClick on the tower to purchase it. \nClick on the music icon to turn music on or off.");
+            //TextBox.text = "Hover over a tower icon to learn its details. \nClick on the tower to purchase it. \nClick on the music icon to turn music on or off.";
+        }
     }
 
     public void onHover() {
-        print("Tower Name: " + currTower.name);
-        if (currTower.name == "Health")
+        if (!towerClicked)
         {
-            UIManager.Singleton.UpdateTextBox("Purchase Health. This option gives you one health point for the following cost:" +
-                "\nCost: " + currTower.cost);
-            /*TextBox.text = "Purchase Health. This option gives you one health point for the following cost:" +
-                "\nCost: " + currTower.cost
-                ;*/
-        }
-        else
-        {
-            UIManager.Singleton.UpdateTextBox("This is the " + currTower.name + " Tower. \n" +
-                "Fire Rate: " + currTower.fireRate +
-                "\nRange: " + currTower.range +
-                "\nDamage: " + currTower.damage +
-                "\nCost: " + currTower.cost);
+            
+            if (currTower.name == "Health")
+            {
+                UIManager.Singleton.UpdateTextBox("Purchase Health. This option gives you one health point for the following cost:" +
+                    "\nCost: " + currTower.cost);
+                /*TextBox.text = "Purchase Health. This option gives you one health point for the following cost:" +
+                    "\nCost: " + currTower.cost
+                    ;*/
+            }
+            else
+            {
+                UIManager.Singleton.UpdateTextBox("This is the " + currTower.name + " Tower. \n" +
+                    "Fire Rate: " + currTower.fireRate +
+                    "\nRange: " + currTower.range +
+                    "\nDamage: " + currTower.damage +
+                    "\nCost: " + currTower.cost);
 
-            /*TextBox.text = "This is the " + currTower.name + " Tower. \n" +
-                "Fire Rate: " + currTower.fireRate +
-                "\nRange: " + currTower.range +
-                "\nDamage: " + currTower.damage +
-                "\nCost: " + currTower.cost
-                ;*/
+                /*TextBox.text = "This is the " + currTower.name + " Tower. \n" +
+                    "Fire Rate: " + currTower.fireRate +
+                    "\nRange: " + currTower.range +
+                    "\nDamage: " + currTower.damage +
+                    "\nCost: " + currTower.cost
+                    ;*/
+            }
         }
     }
 
@@ -162,16 +147,13 @@ public class TowerButton : MonoBehaviour
         bool goodSpot = true;
         
         Ray ray = Camera.main.ScreenPointToRay(mouseLoc);
-       // print(mouseLoc);
-      print(ray.origin);
+
         RaycastHit2D hit = Physics2D.Raycast(new Vector3(ray.origin.x, ray.origin.y, 0f), ray.direction);
         if (hit.collider == null)
         {
-            print("no colliders detected");
             goodSpot = true;
         }
         else {
-            print("colliders detected");
             print(hit.collider);
             goodSpot = false;
         }
