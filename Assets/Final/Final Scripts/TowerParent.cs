@@ -6,21 +6,21 @@ public abstract class TowerParent : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float fireRate;
+    
     public float xCoordinate;
     public float yCoordinate;
     public Vector3 towerPosition;
     public float range;
-    public int damage;
+    
     public int cost;
-    public int Level;
+   
     public List<EnemyFinal> TargetList = new List<EnemyFinal>();
-    public Projectile currProjectile;
-    private bool shot;
+   
+   
 
 
    
-    public void FindTargets() {
+    public virtual void FindTargets() {
         for (int i = 0; i < EnemyManager.Singleton.enemyList.Count; i++) {
             
             if (!TargetList.Contains(EnemyManager.Singleton.enemyList[i]))
@@ -43,25 +43,9 @@ public abstract class TowerParent : MonoBehaviour
         SortTargetList();
     }
 
-    public void UpdateShot(bool shotBool)
-    {
-        shot = shotBool;
-    }
 
-    public void Fire() {
-        if (!shot)
-        {
-            if (TargetList.Count > 0)
-            {
-                Projectile tempProjectile = Instantiate<Projectile>(currProjectile, new Vector3(towerPosition.x, towerPosition.y, 0), Quaternion.identity);
 
-                tempProjectile.InstantiateProjectile(TargetList, this);
-                shot = true;
 
-            }
-        }
-
-    }
 
     public void SortTargetList() {
         EnemyFinal Temp;

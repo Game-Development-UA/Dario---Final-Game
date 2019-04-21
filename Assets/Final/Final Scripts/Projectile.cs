@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     
     private float timeToHit;
     private EnemyFinal currTarget;
-    private TowerParent parentTower;
+    private DamageTower parentTower;
     //private List<GameObject> StoreTargetList = new List<GameObject>();
     private float startDistance;
     private EnemyFinal enemyReference;
@@ -77,7 +77,7 @@ public class Projectile : MonoBehaviour
     }
 
 
-    public void InstantiateProjectile(List<EnemyFinal> TargetList, TowerParent currTower) {
+    public void InstantiateProjectile(List<EnemyFinal> TargetList, DamageTower currTower) {
         if (TargetList.Count > 0) {
             currTarget = TargetList[0];
 

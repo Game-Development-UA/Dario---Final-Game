@@ -17,7 +17,7 @@ public class TowerButton : MonoBehaviour
     public int Level;*/
 
   
-    public TowerParent currTower;
+    public DamageTower currTower;
   
     public TextMeshProUGUI TextBox;
     public TextMeshProUGUI HealthText;
