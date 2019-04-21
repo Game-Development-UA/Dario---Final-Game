@@ -11,6 +11,7 @@ public abstract class TowerParent : MonoBehaviour
     public float yCoordinate;
     public Vector3 towerPosition;
     public float range;
+    public string name;
     
     public int cost;
    

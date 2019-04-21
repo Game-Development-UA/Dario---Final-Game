@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 using TMPro;
 
-public class TowerButton : MonoBehaviour
+public abstract class TowerButton : MonoBehaviour
 {
     // Start is called before the first frame update
     /*public float fireRate;
@@ -16,50 +16,28 @@ public class TowerButton : MonoBehaviour
     public int cost;
     public int Level;*/
 
-  
-    public DamageTower currTower;
+
+    public TowerParent currTower;
   
     public TextMeshProUGUI TextBox;
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI MoneyText;
     public TextMeshProUGUI ScoreText;
-    private bool towerClicked;
+    public bool towerClicked;
 
 
-    void Start()
-    {
-        towerClicked = false;
-      
-    }
 
-  
-    void Update()
-    {
-        if (towerClicked) {
-
-                    CreateTower();
-         }
-
-        
-    }
 
     public void Click() {
 
         if (currTower.cost <=  Player.Singleton.money) {
-            if (currTower.name == "Health")
-            {
-                print("clicked on health");
-                towerClicked = false;
-                UpdatePlayerInfo();
-            }
-            else
-            {
+
                 // TextBox.text = "You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.";
                 UIManager.Singleton.UpdateTextBox("You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.");
                 UpdatePlayerInfo();
                 towerClicked = true;
                 
-            }
+            
         }
     }
 
@@ -99,25 +77,25 @@ public class TowerButton : MonoBehaviour
         }
     }
 
-    public void onHover() {
+    public virtual void onHover() {
         if (!towerClicked)
         {
-            
-            if (currTower.name == "Health")
-            {
-                UIManager.Singleton.UpdateTextBox("Purchase Health. This option gives you one health point for the following cost:" +
-                    "\nCost: " + currTower.cost);
 
-            }
-            else
-            {
-                UIManager.Singleton.UpdateTextBox("This is the " + currTower.name + " Tower. \n" +
-                    "Fire Rate: " + currTower.fireRate +
-                    "\nRange: " + currTower.range +
-                    "\nDamage: " + currTower.damage +
-                    "\nCost: " + currTower.cost);
+            /*  if (currTower.name == "Health")
+              {
+                  UIManager.Singleton.UpdateTextBox("Purchase Health. This option gives you one health point for the following cost:" +
+                      "\nCost: " + currTower.cost);
 
-            }
+              }*/
+
+
+            /*  UIManager.Singleton.UpdateTextBox("This is the " + currTower.name + " Tower. \n" +
+                  "Fire Rate: " + currTower.fireRate +
+                  "\nRange: " + currTower.range +
+                  "\nDamage: " + currTower.damage +
+                  "\nCost: " + currTower.cost);
+
+          */
         }
     }
 

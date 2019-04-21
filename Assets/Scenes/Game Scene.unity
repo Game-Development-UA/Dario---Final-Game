@@ -1526,6 +1526,7 @@ GameObject:
   - component: {fileID: 356498474}
   - component: {fileID: 356498473}
   - component: {fileID: 356498471}
+  - component: {fileID: 356498472}
   m_Layer: 5
   m_Name: Button - Watermelon
   m_TagString: Untagged
@@ -1569,7 +1570,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 356498473}
+        - m_Target: {fileID: 356498472}
           m_MethodName: onHover
           m_Mode: 1
           m_Arguments:
@@ -1586,7 +1587,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 356498473}
+        - m_Target: {fileID: 356498472}
           m_MethodName: UpdateToOriginalText
           m_Mode: 1
           m_Arguments:
@@ -1600,6 +1601,25 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &356498472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356498469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1945b0bd925d145b8a0b7933e41f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currTower: {fileID: 6444543919555466508, guid: 879ad6cb53481a44eb45b97f0cf7a1b3,
+    type: 3}
+  TextBox: {fileID: 146609884}
+  HealthText: {fileID: 1684996965}
+  MoneyText: {fileID: 427385634}
+  ScoreText: {fileID: 1910263103}
+  towerClicked: 0
 --- !u!114 &356498473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1612,12 +1632,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_Name: 
   currTower: {fileID: 6444543919555466508, guid: 879ad6cb53481a44eb45b97f0cf7a1b3,
     type: 3}
   TextBox: {fileID: 146609884}
   HealthText: {fileID: 1684996965}
   MoneyText: {fileID: 427385634}
   ScoreText: {fileID: 1910263103}
+  towerClicked: 0
 --- !u!114 &356498474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1658,7 +1681,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 356498473}
+      - m_Target: {fileID: 356498472}
         m_MethodName: Click
         m_Mode: 1
         m_Arguments:
@@ -1879,8 +1902,8 @@ GameObject:
   - component: {fileID: 433751721}
   - component: {fileID: 433751720}
   - component: {fileID: 433751719}
-  - component: {fileID: 433751718}
   - component: {fileID: 433751716}
+  - component: {fileID: 433751717}
   m_Layer: 5
   m_Name: Button-Pineapple
   m_TagString: Untagged
@@ -1924,7 +1947,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 433751718}
+        - m_Target: {fileID: 433751717}
           m_MethodName: onHover
           m_Mode: 1
           m_Arguments:
@@ -1941,7 +1964,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 433751718}
+        - m_Target: {fileID: 433751717}
           m_MethodName: UpdateToOriginalText
           m_Mode: 1
           m_Arguments:
@@ -1955,7 +1978,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &433751718
+--- !u!114 &433751717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1964,7 +1987,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 433751714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a1945b0bd925d145b8a0b7933e41f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currTower: {fileID: 3330136984207019986, guid: b310d37a442a3044fa0ffc8c84407eb5,
@@ -1973,6 +1996,7 @@ MonoBehaviour:
   HealthText: {fileID: 1684996965}
   MoneyText: {fileID: 427385634}
   ScoreText: {fileID: 1910263103}
+  towerClicked: 0
 --- !u!114 &433751719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2013,7 +2037,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 433751718}
+      - m_Target: {fileID: 433751717}
         m_MethodName: Click
         m_Mode: 1
         m_Arguments:
@@ -2883,6 +2907,7 @@ GameObject:
   - component: {fileID: 1163490047}
   - component: {fileID: 1163490045}
   - component: {fileID: 1163490044}
+  - component: {fileID: 1163490046}
   m_Layer: 5
   m_Name: Button - Grapes
   m_TagString: Untagged
@@ -2926,7 +2951,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1163490045}
+        - m_Target: {fileID: 1163490046}
           m_MethodName: onHover
           m_Mode: 1
           m_Arguments:
@@ -2943,7 +2968,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1163490045}
+        - m_Target: {fileID: 1163490046}
           m_MethodName: UpdateToOriginalText
           m_Mode: 1
           m_Arguments:
@@ -2969,12 +2994,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_Name: 
   currTower: {fileID: 3844125261189783149, guid: 573cdf51556e97c48918d1a817f10086,
     type: 3}
   TextBox: {fileID: 146609884}
   HealthText: {fileID: 1684996965}
   MoneyText: {fileID: 427385634}
   ScoreText: {fileID: 1910263103}
+  towerClicked: 0
+--- !u!114 &1163490046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163490042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1945b0bd925d145b8a0b7933e41f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currTower: {fileID: 3844125261189783149, guid: 573cdf51556e97c48918d1a817f10086,
+    type: 3}
+  TextBox: {fileID: 146609884}
+  HealthText: {fileID: 1684996965}
+  MoneyText: {fileID: 427385634}
+  ScoreText: {fileID: 1910263103}
+  towerClicked: 0
 --- !u!114 &1163490047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3015,7 +3062,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1163490045}
+      - m_Target: {fileID: 1163490046}
         m_MethodName: Click
         m_Mode: 1
         m_Arguments:
@@ -4232,7 +4279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.082391396, y: 0.6434893}
   m_AnchorMax: {x: 0.9411566, y: 0.9685321}
-  m_AnchoredPosition: {x: -3.0000076, y: -2.5000076}
+  m_AnchoredPosition: {x: -3.0000076, y: -2.5}
   m_SizeDelta: {x: 6, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1610033347
@@ -4617,6 +4664,8 @@ GameObject:
   - component: {fileID: 1747246891}
   - component: {fileID: 1747246890}
   - component: {fileID: 1747246889}
+  - component: {fileID: 1747246892}
+  - component: {fileID: 1747246893}
   m_Layer: 5
   m_Name: Button - Slow
   m_TagString: Untagged
@@ -4682,7 +4731,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1747246890}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1747246892}
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1747246890
@@ -4705,8 +4765,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d7083197e20f1ee4b8089b96c0868f0a, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 975da586ee7400844b19f4bdd4efadfb, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4722,6 +4782,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747246887}
   m_CullTransparentMesh: 0
+--- !u!114 &1747246892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747246887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03229388fa151da4da8dfb43cf6b1c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currTower: {fileID: 7542615339663911150, guid: 9ea9e83bc21d98b4883f0268d3860c8c,
+    type: 3}
+  TextBox: {fileID: 146609884}
+  HealthText: {fileID: 1684996965}
+  MoneyText: {fileID: 427385634}
+  ScoreText: {fileID: 1910263103}
+  towerClicked: 0
+--- !u!114 &1747246893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747246887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1747246892}
+          m_MethodName: onHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1747246892}
+          m_MethodName: UpdateToOriginalText
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1752751088
 GameObject:
   m_ObjectHideFlags: 0
@@ -5022,8 +5149,8 @@ GameObject:
   - component: {fileID: 2077355304}
   - component: {fileID: 2077355303}
   - component: {fileID: 2077355302}
-  - component: {fileID: 2077355300}
   - component: {fileID: 2077355299}
+  - component: {fileID: 2077355301}
   m_Layer: 5
   m_Name: Button-Tomato
   m_TagString: Untagged
@@ -5067,7 +5194,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2077355300}
+        - m_Target: {fileID: 2077355301}
           m_MethodName: onHover
           m_Mode: 1
           m_Arguments:
@@ -5084,7 +5211,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2077355300}
+        - m_Target: {fileID: 2077355301}
           m_MethodName: UpdateToOriginalText
           m_Mode: 1
           m_Arguments:
@@ -5098,7 +5225,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &2077355300
+--- !u!114 &2077355301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5107,7 +5234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2077355297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a1945b0bd925d145b8a0b7933e41f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currTower: {fileID: 6284154448752445064, guid: dc4202ab214d2644fb1d3e87aa8f540b,
@@ -5116,6 +5243,7 @@ MonoBehaviour:
   HealthText: {fileID: 1684996965}
   MoneyText: {fileID: 427385634}
   ScoreText: {fileID: 1910263103}
+  towerClicked: 0
 --- !u!114 &2077355302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5156,7 +5284,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2077355300}
+      - m_Target: {fileID: 2077355301}
         m_MethodName: Click
         m_Mode: 1
         m_Arguments:

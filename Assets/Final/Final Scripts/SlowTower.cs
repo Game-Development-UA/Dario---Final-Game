@@ -35,7 +35,7 @@ public class SlowTower : TowerParent
 
                     if ((EnemyManager.Singleton.enemyList[i].transform.position - towerPosition).magnitude > range)
                     {
-                        Fire();
+                        EnemyManager.Singleton.enemyList[i].enemySpeed = 1.7f;
                         TargetList.Remove(EnemyManager.Singleton.enemyList[i]);
                     }
                 }
@@ -47,7 +47,9 @@ public class SlowTower : TowerParent
 
     public void Fire() {
         for (int i = 0; i < TargetList.Count; i++) {
-            if (TargetList[i].enemySpeed > 1.51f) {
+            print("checking targets");
+            if (TargetList[i].enemySpeed > 1.51f)
+            {
                 TargetList[i].enemySpeed = 1.51f;
             }
         }

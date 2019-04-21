@@ -18,6 +18,7 @@ public class EnemyFinal : MonoBehaviour
 
     public bool dead;
     public bool removed;
+    
     public float timer;
 
     // Start is called before the first frame update
@@ -68,7 +69,7 @@ public class EnemyFinal : MonoBehaviour
         {
             angle = angle * -1;
         }
-        print("Angle: " + angle);
+        
         this.transform.GetChild(0).transform.Rotate(0, 0, angle);
     }
 
