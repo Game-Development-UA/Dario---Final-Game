@@ -13,12 +13,13 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI MoneyText;
     public TextMeshProUGUI ScoreText;
-
+    public Sprite[] musicSprites = new Sprite[2];
+    public Image musicButtonSprite;
     public static UIManager Singleton;
 
     // Start is called before the first frame update
 
-   void Awake()
+    void Awake()
     {
         Singleton = this;
         HealthText.text = "" + Player.Singleton.health;
@@ -27,18 +28,19 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void UpdateHealthText(int numToAdd) {
+    public void UpdateHealthText(int numToAdd, int cost) {
         Player.Singleton.UpdateHealth(numToAdd);
         HealthText.text = "" + Player.Singleton.health;
+        UpdateMoneyText(cost);
 
     }
 
@@ -55,4 +57,14 @@ public class UIManager : MonoBehaviour
     public void UpdateTextBox(string update) {
         TextBox.text = update;
     }
+
+    public void UpdateMusicSprite(bool state){
+        if (state == false) {
+            musicButtonSprite.sprite = musicSprites[0];
+        }
+        else {
+            musicButtonSprite.sprite = musicSprites[1];
+        }
+    }
+
 }

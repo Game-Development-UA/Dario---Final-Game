@@ -107,9 +107,7 @@ public class TowerButton : MonoBehaviour
             {
                 UIManager.Singleton.UpdateTextBox("Purchase Health. This option gives you one health point for the following cost:" +
                     "\nCost: " + currTower.cost);
-                /*TextBox.text = "Purchase Health. This option gives you one health point for the following cost:" +
-                    "\nCost: " + currTower.cost
-                    ;*/
+
             }
             else
             {
@@ -119,28 +117,22 @@ public class TowerButton : MonoBehaviour
                     "\nDamage: " + currTower.damage +
                     "\nCost: " + currTower.cost);
 
-                /*TextBox.text = "This is the " + currTower.name + " Tower. \n" +
-                    "Fire Rate: " + currTower.fireRate +
-                    "\nRange: " + currTower.range +
-                    "\nDamage: " + currTower.damage +
-                    "\nCost: " + currTower.cost
-                    ;*/
             }
         }
     }
 
     public void UpdatePlayerInfo() {
         print("Update Player Info - Tower: " + currTower.name);
-        if (currTower.name == "Health")
+      /*  if (currTower.name == "Health")
         {
             UIManager.Singleton.UpdateHealthText(1);
             UIManager.Singleton.UpdateMoneyText(-currTower.cost);
 
-        }
-        else {
+        }*/
+        //else {
             UIManager.Singleton.UpdateMoneyText(-currTower.cost);
            
-        }
+        //}
     }
 
     public bool ValidClickedLocation(Vector3 mouseLoc) {

@@ -6,7 +6,7 @@ public class MusicController : MonoBehaviour
 {
     public AudioClip Music;
     public AudioSource MusicSource;
-    public Initiate Button;
+    
     public bool ClickedMusic = false;
     // Start is called before the first frame update
     void Start()
@@ -20,16 +20,18 @@ public class MusicController : MonoBehaviour
         
     }
     public void MusicControl() {
-        print(Button.Clicked);
-        if (Button.Clicked) {
+        //print(Button.Clicked);
+        
             if (ClickedMusic) {
-                MusicSource.Stop();
-                ClickedMusic = false;
+            UIManager.Singleton.UpdateMusicSprite(ClickedMusic);
+            MusicSource.Stop();
+            ClickedMusic = false;
             }
             else {
+            UIManager.Singleton.UpdateMusicSprite(ClickedMusic);
                 MusicSource.Play();
                 ClickedMusic = true;
             }
-        }
+        
     }
 }

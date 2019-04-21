@@ -38,6 +38,7 @@ public class EnemyManager : MonoBehaviour
     public int round;
     private bool nextRoundStart;
     public int roundWaitTime;
+    public int totalRounds;
 
 
     public List<EnemyFinal> enemyList = new List<EnemyFinal>();
@@ -71,8 +72,9 @@ public class EnemyManager : MonoBehaviour
     }
 
     public void StartRound() {
-        
+        print("Round: " + round);
         nextRoundStart = false;
+        print(availableRounds[round].EnemyRoundNum[0]);
         StartCoroutine(SpawnEnemies(availableRounds[round].EnemyRoundNum[0], availableRounds[round].EnemyRoundNum[1], availableRounds[round].EnemyRoundNum[2]));
         
 
@@ -98,6 +100,9 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnEnemy(EnemyFinal EnemyToSpawn){
         Temp = Instantiate(EnemyToSpawn, new Vector3(spawnCoordinate_x, spawnCoordinate_y, 0), Quaternion.identity);
+        if (round > 5) {
+            Temp.enemySpeed = Temp.enemySpeed * 1.2f;
+        }
         enemyList.Add(Temp);
     }
 
@@ -130,19 +135,12 @@ public class EnemyManager : MonoBehaviour
     }
 
     public void CreateEnemiesForRounds() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < totalRounds; i++) {
             availableRounds.Add(new Round());
 
             availableRounds[i].SetRoundInfo(4 + i, 2 + i, 2 * i);
 
             
-        }
-        print("In create");
-        for (int j = 0; j < 5; j++) {
-        //    for (int k = 0; k < 3; k++) {
-          //      print("Round: " + j + "Enemy Type: " + k);
-                print(availableRounds[j].EnemyRoundNum[0]);
-            //}
         }
 
     }
