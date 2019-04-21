@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Round
@@ -36,7 +37,7 @@ public class EnemyManager : MonoBehaviour
     public float enemySpawnTimer;
 
     public int round;
-    private bool nextRoundStart;
+    public bool nextRoundStart;
     public int roundWaitTime;
     public int totalRounds;
 
@@ -63,8 +64,12 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (round == totalRounds) {
+            SceneManager.LoadScene(4);
+        }
         if (nextRoundStart) {
             if (round < availableRounds.Count) {
+                print("Round: " + round);
                 nextRoundStart = false;
                 Invoke("StartRound", 2);
             }
@@ -101,7 +106,7 @@ public class EnemyManager : MonoBehaviour
     public void SpawnEnemy(EnemyFinal EnemyToSpawn){
         Temp = Instantiate(EnemyToSpawn, new Vector3(spawnCoordinate_x, spawnCoordinate_y, 0), Quaternion.identity);
         if (round > 5) {
-            Temp.enemySpeed = Temp.enemySpeed * 1.2f;
+            Temp.enemySpeed = Temp.enemySpeed * 1.15f;
         }
         enemyList.Add(Temp);
     }

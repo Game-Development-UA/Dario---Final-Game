@@ -7,7 +7,7 @@ public class Enemy_Behavior : MonoBehaviour
     // Start is called before the first frame update
     //public Transform Enemy;
     public float enemySpeed;
-    float enemyTimer = 0f;
+
     public float horizontalSpeed = 0f;
     public float verticalSpeed = 0f;
     public Collider2D hitCollider;

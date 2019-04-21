@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.EventSystems;
-public class Path : MonoBehaviour, IPointerClickHandler
-{
+public class Path : MonoBehaviour
+{ 
    public bool acceptableLocation;
     public List<Transform> checkPoints = new List<Transform>();
     public List<Vector3> pathLines = new List<Vector3>();
@@ -42,20 +42,6 @@ public class Path : MonoBehaviour, IPointerClickHandler
         return returnValue;
         
     }
-
-    public void OnTriggerEnter2D(Collider2D col) {
-        print("hi");
-        if (col.gameObject.tag == "tower") {
-            UIManager.Singleton.UpdateTextBox("Cannot place tower on Enemy Path");
-            
-
-        }
-    }
-
-    public void OnPointerClick(PointerEventData data) {
-
-    }
-
 
 
 }

@@ -26,6 +26,11 @@ public class DeleteExit : MonoBehaviour
             //HealthText.text = "" + player.health;
             UIManager.Singleton.UpdateHealthText(-1, 0);
             EnemyManager.Singleton.enemyList.Remove(col.gameObject.GetComponent<EnemyFinal>());
+            if (EnemyManager.Singleton.enemyList.Count == 0)
+            {
+                EnemyManager.Singleton.nextRoundStart = true;
+                EnemyManager.Singleton.round = EnemyManager.Singleton.round + 1;
+            }
             Destroy(col.gameObject);
         }
     }

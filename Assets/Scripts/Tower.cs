@@ -13,7 +13,7 @@ public class Tower : MonoBehaviour
     public float yCoordinate;
     public float range;
     public int damage;
-    public string name;
+    
     public int cost;
     public int Level;
     public Spawn_Enemies EnemyManager;
@@ -24,7 +24,6 @@ public class Tower : MonoBehaviour
     public Projectile currProjectile;
     private Projectile tempProjectile;
     private bool enemyManagerExists = false;
-    private float interpolationValue = 0f;
     private bool shot;
 
     public TextMeshProUGUI HealthText;

@@ -1508,6 +1508,10 @@ MonoBehaviour:
   HealthText: {fileID: 1684996965}
   MoneyText: {fileID: 427385634}
   ScoreText: {fileID: 1910263103}
+  musicSprites:
+  - {fileID: 21300000, guid: 0d423dea9086bf940ae54f4d274819b7, type: 3}
+  - {fileID: 21300000, guid: 415bbc25e34e0ee499bbeb462fdddf89, type: 3}
+  musicButtonSprite: {fileID: 1027433996}
 --- !u!1 &356498469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,7 +1612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currTower: {fileID: 0}
+  currTower: {fileID: 6444543919555466508, guid: 879ad6cb53481a44eb45b97f0cf7a1b3,
+    type: 3}
   TextBox: {fileID: 146609884}
   HealthText: {fileID: 1684996965}
   MoneyText: {fileID: 427385634}
@@ -2428,14 +2433,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy1: {fileID: 2908975616236739113, guid: 8703486d327e43148af517a293b6612e, type: 3}
-  numWalkEnemies: 5
   Enemy2: {fileID: 4023075230059230835, guid: 58355476d026bff4086decf8aeb038c9, type: 3}
-  numShieldEnemies: 5
   Enemy3: {fileID: 3980080547721256278, guid: 6fee35a71b1da484fb8d0fcb6e03f9ad, type: 3}
-  numBikeEnemies: 5
   spawnCoordinate_x: 1.5
   spawnCoordinate_y: -0.5
-  enemySpawnTimer: 1.5
+  enemySpawnTimer: 1
+  round: 0
+  roundWaitTime: 1
+  totalRounds: 10
   enemyList: []
 --- !u!4 &633745217
 Transform:
@@ -2676,7 +2681,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Music: {fileID: 8300000, guid: facd78beaf3ba3d4db842026064bb1db, type: 3}
   MusicSource: {fileID: 1027433994}
-  Button: {fileID: 1574565635}
   ClickedMusic: 0
 --- !u!82 &1027433994
 AudioSource:
@@ -2847,7 +2851,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 0d423dea9086bf940ae54f4d274819b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 415bbc25e34e0ee499bbeb462fdddf89, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3844,7 +3848,6 @@ GameObject:
   - component: {fileID: 1269289106}
   - component: {fileID: 1269289105}
   - component: {fileID: 1269289104}
-  - component: {fileID: 1269289102}
   - component: {fileID: 1269289101}
   m_Layer: 5
   m_Name: Button - Health
@@ -3881,63 +3884,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1269289099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b1921955535a0c429bacbfcccdc8bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1269289102}
-          m_MethodName: onHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1269289102}
-          m_MethodName: UpdateToOriginalText
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
---- !u!114 &1269289102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269289099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currTower: {fileID: 7407062566189665277, guid: b2d70f12f784ebd459061659ca38c263,
-    type: 3}
-  TextBox: {fileID: 146609884}
-  HealthText: {fileID: 1684996965}
-  MoneyText: {fileID: 427385634}
-  ScoreText: {fileID: 1910263103}
+  cost: 30
 --- !u!114 &1269289104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3978,8 +3928,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1269289102}
-        m_MethodName: Click
+      - m_Target: {fileID: 1269289101}
+        m_MethodName: UpdateHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

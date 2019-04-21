@@ -13,7 +13,6 @@ public class Projectile : MonoBehaviour
     private TowerParent parentTower;
     //private List<GameObject> StoreTargetList = new List<GameObject>();
     private float startDistance;
-    private float interpolationValue;
     private EnemyFinal enemyReference;
 
 
@@ -26,7 +25,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        interpolationValue = 0f;
+        
         hit = false;
     }
 
