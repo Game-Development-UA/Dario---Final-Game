@@ -73,6 +73,7 @@ public class EnemyFinal : MonoBehaviour
 
     public void CheckHealth() {
         if (this.health <= 0f) {
+            print("should be dead");
             dead = true;
             TowerManager.Singleton.RemoveFromAllTowers();
             EnemyManager.Singleton.SearchDeadEnemy();

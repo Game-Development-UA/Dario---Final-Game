@@ -30,14 +30,14 @@ public class EnemyManager : MonoBehaviour
     private int numRounds;
 
     private EnemyFinal Temp;
-    private int enemyTypeCount;
 
     public float spawnCoordinate_x;
     public float spawnCoordinate_y;
     public float enemySpawnTimer;
 
-    private int round;
+    public int round;
     private bool nextRoundStart;
+    public int roundWaitTime;
 
 
     public List<EnemyFinal> enemyList = new List<EnemyFinal>();
@@ -51,28 +51,35 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
-        enemyTypeCount = 0;
+     
         round = 0;
         nextRoundStart = false;
         CreateEnemiesForRounds();
-        StartCoroutine(SpawnEnemies(availableRounds[0].EnemyRoundNum[0], availableRounds[0].EnemyRoundNum[1], availableRounds[0].EnemyRoundNum[2]));
+        Invoke("StartRound", 2);
+        //StartCoroutine(SpawnEnemies(availableRounds[0].EnemyRoundNum[0], availableRounds[0].EnemyRoundNum[1], availableRounds[0].EnemyRoundNum[2]));
     }
 
     // Update is called once per frame
     void Update()
     {
         if (nextRoundStart) {
-            StartRound();
+            if (round < availableRounds.Count) {
+                nextRoundStart = false;
+                Invoke("StartRound", 2);
+            }
         }
     }
 
     public void StartRound() {
+        
         nextRoundStart = false;
         StartCoroutine(SpawnEnemies(availableRounds[round].EnemyRoundNum[0], availableRounds[round].EnemyRoundNum[1], availableRounds[round].EnemyRoundNum[2]));
+        
 
     }
 
     IEnumerator SpawnEnemies(int numBike, int numWalk, int numShield ) {
+        int enemyTypeCount = 0;
         while (enemyTypeCount < numBike + numShield + numWalk) {
             if (enemyTypeCount < numBike) {
                 SpawnEnemy(Enemy3);
@@ -130,13 +137,13 @@ public class EnemyManager : MonoBehaviour
 
             
         }
-        /*print("In create");
+        print("In create");
         for (int j = 0; j < 5; j++) {
-            for (int k = 0; k < 3; k++) {
-                print("Round: " + j + "Enemy Type: " + k);
-                print(availableRounds[j].EnemyRoundNum[k]);
-            }
-        }*/
+        //    for (int k = 0; k < 3; k++) {
+          //      print("Round: " + j + "Enemy Type: " + k);
+                print(availableRounds[j].EnemyRoundNum[0]);
+            //}
+        }
 
     }
 

@@ -26,20 +26,20 @@ public class Path : MonoBehaviour, IPointerClickHandler
 
     public bool CheckConflictTowerPosition(Vector3 towerPosition)
     {
-        print("Hi");
+        bool returnValue;
         print(pathTiles.HasTile(Vector3Int.RoundToInt(towerPosition)));
         if (pathTiles.HasTile(Vector3Int.RoundToInt(towerPosition)))
             {
             print(pathTiles.HasTile(Vector3Int.RoundToInt(towerPosition)));
             UIManager.Singleton.UpdateTextBox("Cannot place tower on Enemy Path");
-                return false;
+                returnValue = false;
             }
             else
             {
             print(pathTiles.HasTile(Vector3Int.RoundToInt(towerPosition)));
-                return true;
+                returnValue = true;
             }
-        return true;
+        return returnValue;
         
     }
 
