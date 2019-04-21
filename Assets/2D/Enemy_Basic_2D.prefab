@@ -68,10 +68,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Basic
-  health: 35
+  health: 60
   enemySpeed: 1.5
   score: 20
-  money: 20
+  money: 10
   Direction: {x: 0, y: 0, z: 0}
   dead: 0
   removed: 0

@@ -94,10 +94,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Bike
-  health: 30
+  health: 25
   enemySpeed: 1.75
-  score: 25
-  money: 25
+  score: 20
+  money: 10
   Direction: {x: 0, y: 0, z: 0}
   dead: 0
   removed: 0
@@ -170,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3de978559bb200048ba1da1c34011331, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10c9b5d9d560229499b00c7c440834ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 36494b2246a7d69469913111fa6bd0bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,14 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3e5400b1c7a2944979d05d4022b381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 3
   xCoordinate: 5
   yCoordinate: -6
   towerPosition: {x: 5, y: -6, z: 0}
   range: 3
-  damage: 10
+  name: Grape
   cost: 20
-  Level: 1
   TargetList: []
+  fireRate: 60
+  damage: 2
   currProjectile: {fileID: 1560377336638950621, guid: 7af4f94dbc4dee048b04f22306048b20,
     type: 3}
