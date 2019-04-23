@@ -44,7 +44,7 @@ public abstract class TowerButton : MonoBehaviour
     public void CreateTower() {
         //TextBox.text = "You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.";
         // UIManager.Singleton.UpdateTextBox("You have selected the " + currTower.name + " Tower. Click on any area of dirt to place the tower.");
-        print("create tower: before if clicked");
+        //print("create tower: before if clicked");
         if (Input.GetKey(KeyCode.Mouse0))
          {
             Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition);

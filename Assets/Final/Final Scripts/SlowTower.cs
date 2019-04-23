@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SlowTower : TowerParent
 {
+    public List<int> targetIndexes = new List<int>();
     void Start()
     {
         TowerManager.Singleton.AddTower(this);
@@ -19,7 +20,7 @@ public class SlowTower : TowerParent
     public override void FindTargets() {
         for (int i = 0; i < EnemyManager.Singleton.enemyList.Count; i++)
         {
-            if (EnemyManager.Singleton.enemyList[i].enemySpeed > 1.5f) {// Only Targets Bikes
+           // if (EnemyManager.Singleton.enemyList[i].enemySpeed > 1.25f) {// Only Targets Bikes
                 if (!TargetList.Contains(EnemyManager.Singleton.enemyList[i]))
                 {
 
@@ -35,23 +36,28 @@ public class SlowTower : TowerParent
 
                     if ((EnemyManager.Singleton.enemyList[i].transform.position - towerPosition).magnitude > range)
                     {
-                        EnemyManager.Singleton.enemyList[i].enemySpeed = 1.7f;
+                    EnemyManager.Singleton.enemyList[i].enemySpeed = EnemyManager.Singleton.enemyList[i].enemySpeed / .85f;
                         TargetList.Remove(EnemyManager.Singleton.enemyList[i]);
                     }
                 }
 
-            }
+           // }
         }
        // SortTargetList();
     }
 
     public void Fire() {
+       
         for (int i = 0; i < TargetList.Count; i++) {
-            print("checking targets");
-            if (TargetList[i].enemySpeed > 1.51f)
+
+            if (!TargetList[i].slowed)
             {
-                TargetList[i].enemySpeed = 1.51f;
+                TargetList[i].enemySpeed = TargetList[i].enemySpeed * .85f;
+                TargetList[i].slowed = true;
+             
             }
+            
+         
         }
         
 

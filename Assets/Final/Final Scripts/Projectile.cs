@@ -83,12 +83,18 @@ public class Projectile : MonoBehaviour
 
         }
         parentTower = currTower;
-        shotDirection = currTarget.transform.position - parentTower.towerPosition;
-        shotDirection.Normalize();
-        //shotDirection = shotDirection / 10f;
-        startPosition = parentTower.transform.position + shotDirection/10f;
-        this.transform.position = startPosition;
-        projectileSpeed = 2f + parentTower.fireRate / 50f;
+        if (currTarget != null)
+        {
+            shotDirection = currTarget.transform.position - parentTower.towerPosition;
+            shotDirection.Normalize();
+            //shotDirection = shotDirection / 10f;
+            startPosition = parentTower.transform.position + shotDirection / 10f;
+            this.transform.position = startPosition;
+            projectileSpeed = 2f + parentTower.fireRate / 50f;
+        }
+        else {
+            Destroy(this.gameObject);
+        }
     }
     
 

@@ -105,7 +105,7 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnEnemy(EnemyFinal EnemyToSpawn){
         Temp = Instantiate(EnemyToSpawn, new Vector3(spawnCoordinate_x, spawnCoordinate_y, 0), Quaternion.identity);
-        if (round > 5) {
+        if (round > 5) {    //Make the enemies faster after round 5
             Temp.enemySpeed = Temp.enemySpeed * 1.15f;
         }
         enemyList.Add(Temp);
@@ -125,27 +125,52 @@ public class EnemyManager : MonoBehaviour
 
 
 
-    public void SearchDeadEnemy() {
-        for (int i = 0; i < enemyList.Count; i++) {
-            if (enemyList[i].dead) {
+    public void SearchDeadEnemy()
+    {
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            if (enemyList[i].dead)
+            {
                 EnemyFinal Temp = enemyList[i];
-               // RemoveFromList(Temp);
+                // RemoveFromList(Temp);
+
                 enemyList.Remove(Temp);
+                /* if (enemyList[i].dead) {
+                     if (!enemyList[i].removed)
+                         {
+                         enemyList[i].removed = true;
+                         }
+                 }
+             }*/
             }
-        }
-        if (enemyList.Count == 0) {
-            nextRoundStart = true;
-            round++;
+            if (enemyList.Count == 0)
+            {
+                nextRoundStart = true;
+                round++;
+            }
         }
     }
 
     public void CreateEnemiesForRounds() {
+        List<int> enemyNum = new List<int>();
         for (int i = 0; i < totalRounds; i++) {
             availableRounds.Add(new Round());
+            //List<int> enemyNum = new List<int>();
+            enemyNum.Add(4 + i);
+            //int x = 4 + i;
+            enemyNum.Add(2 + i);
+            //int y = 2 + i;
+            enemyNum.Add(2 * (i - 1));
+            //int z = 2 * (i - 1);
+            for (int j = 0; j < enemyNum.Count; j++) {
+                print(enemyNum[2]);
+                if (enemyNum[j] < 0) {
+                    enemyNum[j] = 0;
+                }
+            }
+            availableRounds[i].SetRoundInfo(enemyNum[0], enemyNum[1], enemyNum[2]);
 
-            availableRounds[i].SetRoundInfo(4 + i, 2 + i, 2 * i);
-
-            
+            enemyNum.Clear();
         }
 
     }

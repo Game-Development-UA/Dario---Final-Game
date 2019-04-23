@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4337216857481177060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,14 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3e5400b1c7a2944979d05d4022b381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 3
   xCoordinate: 0
   yCoordinate: 0
   towerPosition: {x: 0, y: 0, z: 0}
   range: 3
-  damage: 25
-  cost: 50
-  Level: 1
+  name: 
+  cost: 120
   TargetList: []
+  fireRate: 10
+  damage: 30
   currProjectile: {fileID: 1883725796203596787, guid: c7b1bfd463f6d204bb97c4e2d404a71d,
     type: 3}

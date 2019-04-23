@@ -15,9 +15,11 @@ public class EnemyFinal : MonoBehaviour
     private Transform currCheckPoint;
     private int checkPointNum;
     public Vector3 Direction;
+    public Vector3 prevDirection;
 
     public bool dead;
     public bool removed;
+    public bool slowed;
     
     public float timer;
 
@@ -27,6 +29,7 @@ public class EnemyFinal : MonoBehaviour
         Direction = new Vector3(0, -1, 0);
         timer = 0f;
         dead = false;
+        slowed = false;
         UpdateCheckPoint(0);
         
     }
@@ -41,13 +44,13 @@ public class EnemyFinal : MonoBehaviour
     }
 
     public void UpdateCheckPoint(int numCheckPoint) {
-        Vector3 prevDirection = Direction;
+        prevDirection = Direction;
         if (numCheckPoint < Path.Singleton.checkPoints.Count)
         {
             currCheckPoint = Path.Singleton.checkPoints[numCheckPoint];
             checkPointNum = numCheckPoint;
         }
-        
+        print("Current Check Point Position: " + currCheckPoint.position);
         Direction = Vector3.Normalize(currCheckPoint.position - this.transform.position);
         RotateSprite(prevDirection);
        // this.transform.GetChild(0).transform.LookAt(currCheckPoint);
@@ -79,7 +82,7 @@ public class EnemyFinal : MonoBehaviour
             dead = true;
             TowerManager.Singleton.RemoveFromAllTowers();
             EnemyManager.Singleton.SearchDeadEnemy();
-
+            removed = true;
             if (removed)
             {
                 UIManager.Singleton.UpdateScoreText(score);

@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87274387a0501a64899671956ca254d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 100
+  money: 50
   health: 5
   score: 0
 --- !u!4 &287461526
@@ -1632,15 +1632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_Name: 
-  currTower: {fileID: 6444543919555466508, guid: 879ad6cb53481a44eb45b97f0cf7a1b3,
-    type: 3}
-  TextBox: {fileID: 146609884}
-  HealthText: {fileID: 1684996965}
-  MoneyText: {fileID: 427385634}
-  ScoreText: {fileID: 1910263103}
-  towerClicked: 0
 --- !u!114 &356498474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2994,15 +2985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400f81e8730a2bf47b3b13c6df5e9e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_Name: 
-  currTower: {fileID: 3844125261189783149, guid: 573cdf51556e97c48918d1a817f10086,
-    type: 3}
-  TextBox: {fileID: 146609884}
-  HealthText: {fileID: 1684996965}
-  MoneyText: {fileID: 427385634}
-  ScoreText: {fileID: 1910263103}
-  towerClicked: 0
 --- !u!114 &1163490046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3935,7 +3917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1921955535a0c429bacbfcccdc8bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 30
+  cost: 50
 --- !u!114 &1269289104
 MonoBehaviour:
   m_ObjectHideFlags: 0

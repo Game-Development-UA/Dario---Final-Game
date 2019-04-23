@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4187792154545033910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.015753, y: -5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,14 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3e5400b1c7a2944979d05d4022b381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 3
   xCoordinate: 0
   yCoordinate: 0
   towerPosition: {x: 0, y: 0, z: 0}
   range: 3
-  damage: 15
-  cost: 35
-  Level: 0
+  name: Tomato
+  cost: 60
   TargetList: []
+  fireRate: 30
+  damage: 20
   currProjectile: {fileID: 8080122074508212237, guid: 97b317a6c9a5c32419419260bdc87a78,
     type: 3}
