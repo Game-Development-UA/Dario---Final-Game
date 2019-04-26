@@ -8,7 +8,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-
+    public TextMeshProUGUI RoundNum;
     public TextMeshProUGUI TextBox;
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI MoneyText;
@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         Singleton = this;
+        RoundNum.text = "" + 0;
         HealthText.text = "" + Player.Singleton.health;
         MoneyText.text = "" + Player.Singleton.money;
         ScoreText.text = "" + Player.Singleton.score;
@@ -65,6 +66,10 @@ public class UIManager : MonoBehaviour
         else {
             musicButtonSprite.sprite = musicSprites[1];
         }
+    }
+
+    public void UpdateRound(int val) {
+        RoundNum.text = "" + val;
     }
 
 }

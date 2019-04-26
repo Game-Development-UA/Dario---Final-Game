@@ -57,7 +57,7 @@ public class EnemyManager : MonoBehaviour
         round = 0;
         nextRoundStart = false;
         CreateEnemiesForRounds();
-        Invoke("StartRound", 2);
+        Invoke("StartRound", roundWaitTime);
         //StartCoroutine(SpawnEnemies(availableRounds[0].EnemyRoundNum[0], availableRounds[0].EnemyRoundNum[1], availableRounds[0].EnemyRoundNum[2]));
     }
 
@@ -69,15 +69,16 @@ public class EnemyManager : MonoBehaviour
         }
         if (nextRoundStart) {
             if (round < availableRounds.Count) {
-                print("Round: " + round);
+                
                 nextRoundStart = false;
-                Invoke("StartRound", 2);
+                
+                Invoke("StartRound", roundWaitTime);
             }
         }
     }
 
     public void StartRound() {
-        print("Round: " + round);
+        UIManager.Singleton.UpdateRound(round);
         nextRoundStart = false;
         print(availableRounds[round].EnemyRoundNum[0]);
         StartCoroutine(SpawnEnemies(availableRounds[round].EnemyRoundNum[0], availableRounds[round].EnemyRoundNum[1], availableRounds[round].EnemyRoundNum[2]));
