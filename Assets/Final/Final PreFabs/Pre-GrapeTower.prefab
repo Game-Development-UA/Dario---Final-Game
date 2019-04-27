@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6834174602290289844}
   - component: {fileID: 8238704262595626956}
   - component: {fileID: 3844125261189783149}
+  - component: {fileID: 7538046717754193185}
   m_Layer: 0
   m_Name: Pre-GrapeTower
   m_TagString: Untagged
@@ -127,6 +128,29 @@ MonoBehaviour:
   cost: 30
   TargetList: []
   fireRate: 60
+  damage: 2
+  currProjectile: {fileID: 1560377336638950621, guid: 7af4f94dbc4dee048b04f22306048b20,
+    type: 3}
+--- !u!114 &7538046717754193185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7775142686957096710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ca304befb5a4142980c02dbcd71b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xCoordinate: 5
+  yCoordinate: -6
+  towerPosition: {x: 5, y: -6, z: 0}
+  range: 2.5
+  name: Grape
+  cost: 30
+  TargetList: []
+  fireRate: 70
   damage: 2
   currProjectile: {fileID: 1560377336638950621, guid: 7af4f94dbc4dee048b04f22306048b20,
     type: 3}

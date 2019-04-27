@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyFinal : MonoBehaviour
 {
-    public string Name;
+    public string secondName;
     public float health;
     public float enemySpeed;
     public int score;

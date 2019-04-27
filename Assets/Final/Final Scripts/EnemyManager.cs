@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class Round
 {
-    public int[] EnemyRoundNum = new int[3];
+    public int[] EnemyRoundNum = new int[4];
 
 
-    public void SetRoundInfo(int numBike, int numWalk, int numShield) {
+    public void SetRoundInfo(int numBike, int numWalk, int numGrape, int numShield) {
         EnemyRoundNum[0] = numBike;
         EnemyRoundNum[1] = numWalk;
-        EnemyRoundNum[2] = numShield;
+        EnemyRoundNum[2] = numGrape;
+        EnemyRoundNum[3] = numShield;
     }
 }
 public class EnemyManager : MonoBehaviour
@@ -26,6 +27,8 @@ public class EnemyManager : MonoBehaviour
  
 
     public EnemyFinal Enemy3;
+
+    public EnemyFinal Enemy4;
 
     public List<Round> availableRounds = new List<Round>();
     private int numRounds;
@@ -81,22 +84,25 @@ public class EnemyManager : MonoBehaviour
         UIManager.Singleton.UpdateRound(round);
         nextRoundStart = false;
         print(availableRounds[round].EnemyRoundNum[0]);
-        StartCoroutine(SpawnEnemies(availableRounds[round].EnemyRoundNum[0], availableRounds[round].EnemyRoundNum[1], availableRounds[round].EnemyRoundNum[2]));
+        StartCoroutine(SpawnEnemies(availableRounds[round].EnemyRoundNum[0], availableRounds[round].EnemyRoundNum[1], availableRounds[round].EnemyRoundNum[2], availableRounds[round].EnemyRoundNum[3]));
         
 
     }
 
-    IEnumerator SpawnEnemies(int numBike, int numWalk, int numShield ) {
+    IEnumerator SpawnEnemies(int numBike, int numWalk, int numGrape, int numShield ) {
         int enemyTypeCount = 0;
         while (enemyTypeCount < numBike + numShield + numWalk) {
             if (enemyTypeCount < numBike) {
-                SpawnEnemy(Enemy3);
-            }
-            else if (enemyTypeCount < numWalk + numBike) {
                 SpawnEnemy(Enemy1);
             }
-            else if (enemyTypeCount < numShield + numWalk + numBike) {
+            else if (enemyTypeCount < numWalk + numBike) {
                 SpawnEnemy(Enemy2);
+            }
+            else if (enemyTypeCount < numGrape + numWalk + numBike) {
+                SpawnEnemy(Enemy3);
+            }
+            else if (enemyTypeCount < numShield + numWalk + numGrape + numBike) {
+                SpawnEnemy(Enemy4);
             }
             enemyTypeCount++;
             yield return new WaitForSeconds(enemySpawnTimer);
@@ -161,15 +167,16 @@ public class EnemyManager : MonoBehaviour
             //int x = 4 + i;
             enemyNum.Add(2 + i);
             //int y = 2 + i;
+            enemyNum.Add(2 + (i - 2));
             enemyNum.Add(2 * (i - 1));
             //int z = 2 * (i - 1);
             for (int j = 0; j < enemyNum.Count; j++) {
-                print(enemyNum[2]);
+                //print(enemyNum[2]);
                 if (enemyNum[j] < 0) {
                     enemyNum[j] = 0;
                 }
             }
-            availableRounds[i].SetRoundInfo(enemyNum[0], enemyNum[1], enemyNum[2]);
+            availableRounds[i].SetRoundInfo(enemyNum[0], enemyNum[1], enemyNum[2], enemyNum[3]);
 
             enemyNum.Clear();
         }
