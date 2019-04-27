@@ -24,7 +24,7 @@ public class DamageTowerButton : TowerButton
 
     }
 
-    public override void onHover() {
+    public void onHover() {
         if (!base.towerClicked)
         {
             UIManager.Singleton.UpdateTextBox("This is the " + currTower.name + " Tower. \n" +

@@ -70,6 +70,8 @@ public abstract class TowerButton : MonoBehaviour
 
 
     }
+
+
     public void UpdateToOriginalText() {
         if (!towerClicked) {
             UIManager.Singleton.UpdateTextBox("Hover over a tower icon to learn its details. \nClick on the tower to purchase it. \nClick on the music icon to turn music on or off.");
@@ -77,40 +79,11 @@ public abstract class TowerButton : MonoBehaviour
         }
     }
 
-    public virtual void onHover() {
-        if (!towerClicked)
-        {
-
-            /*  if (currTower.name == "Health")
-              {
-                  UIManager.Singleton.UpdateTextBox("Purchase Health. This option gives you one health point for the following cost:" +
-                      "\nCost: " + currTower.cost);
-
-              }*/
-
-
-            /*  UIManager.Singleton.UpdateTextBox("This is the " + currTower.name + " Tower. \n" +
-                  "Fire Rate: " + currTower.fireRate +
-                  "\nRange: " + currTower.range +
-                  "\nDamage: " + currTower.damage +
-                  "\nCost: " + currTower.cost);
-
-          */
-        }
-    }
 
     public void UpdatePlayerInfo() {
         print("Update Player Info - Tower: " + currTower.name);
-      /*  if (currTower.name == "Health")
-        {
-            UIManager.Singleton.UpdateHealthText(1);
-            UIManager.Singleton.UpdateMoneyText(-currTower.cost);
+        UIManager.Singleton.UpdateMoneyText(-currTower.cost);
 
-        }*/
-        //else {
-            UIManager.Singleton.UpdateMoneyText(-currTower.cost);
-           
-        //}
     }
 
     public bool ValidClickedLocation(Vector3 mouseLoc) {

@@ -25,7 +25,7 @@ public class NonDamageTowerButton : TowerButton
 
     }
 
-    public override void onHover()
+    public void onHover()
     {
         if (!base.towerClicked)
         {
