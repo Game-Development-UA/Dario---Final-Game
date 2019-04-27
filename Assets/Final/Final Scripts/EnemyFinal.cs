@@ -50,7 +50,7 @@ public class EnemyFinal : MonoBehaviour
             currCheckPoint = Path.Singleton.checkPoints[numCheckPoint];
             checkPointNum = numCheckPoint;
         }
-        print("Current Check Point Position: " + currCheckPoint.position);
+        //print("Current Check Point Position: " + currCheckPoint.position);
         Direction = Vector3.Normalize(currCheckPoint.position - this.transform.position);
         RotateSprite(prevDirection);
        // this.transform.GetChild(0).transform.LookAt(currCheckPoint);

@@ -9,12 +9,13 @@ public class GrapeImmune : DamageTower
         for (int i = 0; i < EnemyManager.Singleton.enemyList.Count; i++)
         {
             if (EnemyManager.Singleton.enemyList[i].secondName != "Grape") {
-                print(EnemyManager.Singleton.enemyList[i].secondName);
+               
                 if (!TargetList.Contains(EnemyManager.Singleton.enemyList[i]))
                 {
 
                     if ((EnemyManager.Singleton.enemyList[i].transform.position - towerPosition).magnitude <= range)
                     {
+                        print(EnemyManager.Singleton.enemyList[i].secondName);
                         TargetList.Add(EnemyManager.Singleton.enemyList[i]);
                     }
 

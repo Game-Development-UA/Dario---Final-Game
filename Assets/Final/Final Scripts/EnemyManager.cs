@@ -83,7 +83,8 @@ public class EnemyManager : MonoBehaviour
     public void StartRound() {
         UIManager.Singleton.UpdateRound(round);
         nextRoundStart = false;
-        print(availableRounds[round].EnemyRoundNum[0]);
+        // print(availableRounds[round].EnemyRoundNum[2]);
+       // printArray(availableRounds);
         StartCoroutine(SpawnEnemies(availableRounds[round].EnemyRoundNum[0], availableRounds[round].EnemyRoundNum[1], availableRounds[round].EnemyRoundNum[2], availableRounds[round].EnemyRoundNum[3]));
         
 
@@ -91,7 +92,11 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator SpawnEnemies(int numBike, int numWalk, int numGrape, int numShield ) {
         int enemyTypeCount = 0;
-        while (enemyTypeCount < numBike + numShield + numWalk) {
+        print(numGrape);
+        int total = numBike + numGrape + numWalk + numShield;
+       // print("Total: " + total );
+        while (enemyTypeCount < numBike + numGrape + numShield + numWalk) {
+            print(enemyTypeCount);
             if (enemyTypeCount < numBike) {
                 SpawnEnemy(Enemy1);
             }
@@ -99,6 +104,7 @@ public class EnemyManager : MonoBehaviour
                 SpawnEnemy(Enemy2);
             }
             else if (enemyTypeCount < numGrape + numWalk + numBike) {
+                print("Should be creating a grape immune");
                 SpawnEnemy(Enemy3);
             }
             else if (enemyTypeCount < numShield + numWalk + numGrape + numBike) {
@@ -167,11 +173,11 @@ public class EnemyManager : MonoBehaviour
             //int x = 4 + i;
             enemyNum.Add(2 + i);
             //int y = 2 + i;
-            enemyNum.Add(2 + (i - 2));
+            enemyNum.Add(2 * (i + 1));
             enemyNum.Add(2 * (i - 1));
             //int z = 2 * (i - 1);
             for (int j = 0; j < enemyNum.Count; j++) {
-                //print(enemyNum[2]);
+               //print(enemyNum[2]);
                 if (enemyNum[j] < 0) {
                     enemyNum[j] = 0;
                 }
@@ -181,6 +187,15 @@ public class EnemyManager : MonoBehaviour
             enemyNum.Clear();
         }
 
+    }
+
+    public void printArray(List<Round> roundList) {
+        for (int i = 0; i < roundList.Count; i++) {
+            for (int j = 0; j < roundList[i].EnemyRoundNum.Length; j++)
+            {
+                print(roundList[i].EnemyRoundNum[j]);
+            }
+        }
     }
 
 }
