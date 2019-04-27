@@ -23,13 +23,17 @@ public class UIManager : MonoBehaviour
     {
         Singleton = this;
         RoundNum.text = "" + 0;
-        HealthText.text = "" + Player.Singleton.health;
-        MoneyText.text = "" + Player.Singleton.money;
-        ScoreText.text = "" + Player.Singleton.score;
+        if (Player.Singleton != null) {
+            HealthText.text = "" + Player.Singleton.health;
+            MoneyText.text = "" + Player.Singleton.money;
+            ScoreText.text = "" + Player.Singleton.score;
+        }
     }
     void Start()
     {
-
+        HealthText.text = "" + Player.Singleton.health;
+        MoneyText.text = "" + Player.Singleton.money;
+        ScoreText.text = "" + Player.Singleton.score;
     }
 
     // Update is called once per frame
