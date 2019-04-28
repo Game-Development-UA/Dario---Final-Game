@@ -62,7 +62,7 @@ public class EnemyFinal : MonoBehaviour
     }
 
     public void CheckPosition() {
-        if (Vector3.Magnitude(this.transform.position - currCheckPoint.position) < 0.05) {
+        if (Vector3.Magnitude(this.transform.position - currCheckPoint.position) < 0.025) {
             UpdateCheckPoint(checkPointNum + 1);
         }
     }
@@ -71,12 +71,14 @@ public class EnemyFinal : MonoBehaviour
     {
 
        float angle = Mathf.Acos(Vector3.Dot(prevDirection, Direction)) * Mathf.Rad2Deg;
-
+        
+      
+        print("angle: " + angle);
         if (Vector3.Cross(Direction, prevDirection).z > 0) 
         {
             angle = angle * -1;
         }
-        
+
         this.transform.GetChild(0).transform.Rotate(0, 0, angle);
     }
 

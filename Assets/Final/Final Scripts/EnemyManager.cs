@@ -61,6 +61,7 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         if (round == totalRounds) {
+            Player.Singleton.Save();
             SceneManager.LoadScene(4);
         }
         if (nextRoundStart) {
@@ -76,8 +77,6 @@ public class EnemyManager : MonoBehaviour
     public void StartRound() {
         UIManager.Singleton.UpdateRound(round);
         nextRoundStart = false;
-        // print(availableRounds[round].EnemyRoundNum[2]);
-       // printArray(availableRounds);
         StartCoroutine(SpawnEnemies(availableRounds[round].EnemyRoundNum[0], availableRounds[round].EnemyRoundNum[1], availableRounds[round].EnemyRoundNum[2], availableRounds[round].EnemyRoundNum[3]));
         
 
@@ -141,13 +140,7 @@ public class EnemyManager : MonoBehaviour
                 // RemoveFromList(Temp);
 
                 enemyList.Remove(Temp);
-                /* if (enemyList[i].dead) {
-                     if (!enemyList[i].removed)
-                         {
-                         enemyList[i].removed = true;
-                         }
-                 }
-             }*/
+
             }
             if (enemyList.Count == 0)
             {
@@ -161,16 +154,13 @@ public class EnemyManager : MonoBehaviour
         List<int> enemyNum = new List<int>();
         for (int i = 0; i < totalRounds; i++) {
             availableRounds.Add(new Round());
-            //List<int> enemyNum = new List<int>();
             enemyNum.Add(4 + i);
-            //int x = 4 + i;
             enemyNum.Add(2 + i);
-            //int y = 2 + i;
             enemyNum.Add(2 * (i - 2));
             enemyNum.Add(2 * (i - 1));
-            //int z = 2 * (i - 1);
+
             for (int j = 0; j < enemyNum.Count; j++) {
-               //print(enemyNum[2]);
+
                 if (enemyNum[j] < 0) {
                     enemyNum[j] = 0;
                 }
