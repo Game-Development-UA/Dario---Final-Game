@@ -19,15 +19,8 @@ public class Round
 public class EnemyManager : MonoBehaviour
 {
     public EnemyFinal Enemy1;
-
-  
-    
     public EnemyFinal Enemy2;
- 
- 
-
     public EnemyFinal Enemy3;
-
     public EnemyFinal Enemy4;
 
     public List<Round> availableRounds = new List<Round>();
@@ -173,7 +166,7 @@ public class EnemyManager : MonoBehaviour
             //int x = 4 + i;
             enemyNum.Add(2 + i);
             //int y = 2 + i;
-            enemyNum.Add(2 * (i + 1));
+            enemyNum.Add(2 * (i - 2));
             enemyNum.Add(2 * (i - 1));
             //int z = 2 * (i - 1);
             for (int j = 0; j < enemyNum.Count; j++) {

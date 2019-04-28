@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Easy Game Scene.unity
     guid: cd601cb3e8905a9458244368b969dda6
+  - enabled: 1
+    path: Assets/Scenes/Rules 2.unity
+    guid: 8864e5e5887ad4e44a9868e856cb255d
   m_configObjects: {}

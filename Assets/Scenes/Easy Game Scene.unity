@@ -268,17 +268,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f0319be5b1c7d140a9a2c1a83bae72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy1: {fileID: 2908975616236739113, guid: 8703486d327e43148af517a293b6612e, type: 3}
-  Enemy2: {fileID: 4023075230059230835, guid: 58355476d026bff4086decf8aeb038c9, type: 3}
-  Enemy3: {fileID: 3980080547721256278, guid: 6fee35a71b1da484fb8d0fcb6e03f9ad, type: 3}
-  Enemy4: {fileID: 0}
+  Enemy1: {fileID: 3980080547721256278, guid: 6fee35a71b1da484fb8d0fcb6e03f9ad, type: 3}
+  Enemy2: {fileID: 2908975616236739113, guid: 8703486d327e43148af517a293b6612e, type: 3}
+  Enemy3: {fileID: 6522958107828308193, guid: 0c3ca422578382c438028434edbcc2d1, type: 3}
+  Enemy4: {fileID: 4023075230059230835, guid: 58355476d026bff4086decf8aeb038c9, type: 3}
   spawnCoordinate_x: -7.5
   spawnCoordinate_y: 0
   enemySpawnTimer: 1.25
   round: 0
   nextRoundStart: 0
   roundWaitTime: 3
-  totalRounds: 10
+  totalRounds: 7
   enemyList: []
 --- !u!4 &95066691
 Transform:
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1945b0bd925d145b8a0b7933e41f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currTower: {fileID: 3844125261189783149, guid: 573cdf51556e97c48918d1a817f10086,
+  currTower: {fileID: 7538046717754193185, guid: 573cdf51556e97c48918d1a817f10086,
     type: 3}
   TextBox: {fileID: 1718723309}
   HealthText: {fileID: 245343733}
@@ -5427,12 +5427,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 2075098812}
+        m_MethodName: UpdateHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
