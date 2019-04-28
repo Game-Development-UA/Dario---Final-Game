@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyFinal : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class EnemyFinal : MonoBehaviour
     public bool slowed;
     
     public float timer;
+    public float totalHealth;
+    public Image Healthbar;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,7 @@ public class EnemyFinal : MonoBehaviour
         dead = false;
         slowed = false;
         UpdateCheckPoint(0);
+        totalHealth = health;
         
     }
 
@@ -77,6 +81,7 @@ public class EnemyFinal : MonoBehaviour
     }
 
     public void CheckHealth() {
+        Healthbar.fillAmount = health / totalHealth;
         if (this.health <= 0f) {
             print("should be dead");
             dead = true;
